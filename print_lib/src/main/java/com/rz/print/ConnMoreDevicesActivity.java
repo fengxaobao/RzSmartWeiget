@@ -272,7 +272,7 @@ public class ConnMoreDevicesActivity extends Activity {
                             //设置连接的蓝牙mac地址
                             .setMacAddress(macAddress)
                             .setId(id)
-                            .build();
+                            .build(this);
                     lists.get(id).put(CONN_METHOD, "蓝牙");
                     lists.get(id).put(ListViewAdapter.INFO, getPortParamInfoString(deviceConnFactoryManagers[id]));
                     adapter.notifyDataSetChanged();
@@ -310,7 +310,7 @@ public class ConnMoreDevicesActivity extends Activity {
                                 .setBaudrate(baudrate)
                                 //设置串口号
                                 .setSerialPort(path)
-                                .build();
+                                .build(this);
                     }
                     break;
                 default:
@@ -353,7 +353,7 @@ public class ConnMoreDevicesActivity extends Activity {
                             .setId(id)
                             //设置连接的热点端口号
                             .setPort(Integer.parseInt(strPort))
-                            .build();
+                            .build(getApplicationContext());
                     lists.get(id).put(CONN_METHOD, "WIFI");
                     lists.get(id).put(ListViewAdapter.INFO, getPortParamInfoString(deviceConnFactoryManagers[id]));
                     adapter.notifyDataSetChanged();
@@ -379,7 +379,7 @@ public class ConnMoreDevicesActivity extends Activity {
                 .setConnMethod(DeviceConnFactoryManager.CONN_METHOD.USB)
                 .setUsbDevice(usbDevice)
                 .setContext(this)
-                .build();
+                .build(this);
         lists.get(id).put(CONN_METHOD, "USB");
         lists.get(id).put(ListViewAdapter.INFO, getPortParamInfoString(deviceConnFactoryManagers[id]));
         adapter.notifyDataSetChanged();
@@ -405,11 +405,11 @@ public class ConnMoreDevicesActivity extends Activity {
                 @Override
                 public void run() {
                     if (DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].getCurrentPrinterCommand() == PrinterCommand.CPCL) {
-                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getCPCL());
+                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getCPCL(getApplicationContext()));
                     } else if (DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].getCurrentPrinterCommand() == PrinterCommand.TSC) {
-                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getLabel());
+                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getLabel(getApplicationContext()));
                     } else if (DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].getCurrentPrinterCommand() == PrinterCommand.ESC) {
-                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getReceipt());
+                        DeviceConnFactoryManager.getDeviceConnFactoryManagers()[id].sendDataImmediately(PrintContent.getReceipt(getApplicationContext()));
                     }
                 }
             });
