@@ -2,13 +2,14 @@ package com.rz.smart.model.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * 作者：iss on 2020/10/18 10:05
  * 邮箱：55921173@qq.com
  * 类备注：
  */
- class CuisineInfo {
+class CuisineInfo : Serializable {
     @Expose
     @SerializedName("F_DELETEFLAG")
     var F_DELETEFLAG = 0
@@ -59,11 +60,11 @@ import com.google.gson.annotations.SerializedName
 
     @Expose
     @SerializedName("F_Money")
-    var F_Money = 0
+    var F_Money = 0.0
 
     @Expose
     @SerializedName("F_Weight")
-    var F_Weight = 0
+    var F_Weight = 0.0
 
     @Expose
     @SerializedName("F_TypeID")
@@ -87,5 +88,5 @@ import com.google.gson.annotations.SerializedName
 
     @Expose
     @SerializedName("F_ID")
-    var F_ID = 0
+    var F_ID = 0L
 }

@@ -4,9 +4,9 @@ package com.rz.bmn.service
 import com.jetpack.base.mvvm.bean.BaseResponse
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
-import retrofit2.http.Body
-import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * 作者：iss on 2020/6/1 10:56
@@ -17,10 +17,14 @@ import retrofit2.http.POST
 interface SmartService {
 
     @POST("Home/GetData")
-    suspend fun getAllCuisine(@Field ("Code")Code:String,@Field("Parament")Parament:String): BaseResponse<List<CuisineInfo>>
+    suspend fun getAllCuisine(
+        @Query("Code") Code: String,
+        @Query("Parament") Parament: Map<String, String>
+    ): BaseResponse<List<CuisineInfo>>
 
-
-    //餐卡余额
     @POST("Home/GetData")
-    suspend fun UpLoadList(@Field ("Code")Code:String,@Field("Parament")Parament:String): BaseResponse<UploadMenuInfo>
+    suspend fun UpLoadList(
+        @Query("Code") Code: String,
+        @Query("Parament") Parament: String
+    ): BaseResponse<List<UploadMenuInfo>>
 }

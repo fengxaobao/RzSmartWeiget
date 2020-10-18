@@ -98,7 +98,6 @@ dependencies {
     androidTestImplementation deps.material
     annotationProcessor 'androidx.room:room-compiler:2.2.2'
 
-
     //LeakCanary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"

@@ -4,5 +4,6 @@
     <string name="net_connection">联网</string>
     <string name="net_disconnection">断网</string>
     <string name="net_connection_fail">数据获取失败</string>
+    <string name="comm_please_price">请输入价格</string>
 
 </resources>

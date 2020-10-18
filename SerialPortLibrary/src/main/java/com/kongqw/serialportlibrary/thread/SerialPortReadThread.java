@@ -33,7 +33,7 @@ public abstract class SerialPortReadThread extends Thread {
                     return;
                 }
 
-                Log.i(TAG, "run: ");
+//                Log.i(TAG, "run: ");
                 int size = mInputStream.read(mReadBuffer);
 
                 if (-1 == size || 0 >= size) {
@@ -44,7 +44,7 @@ public abstract class SerialPortReadThread extends Thread {
 
                 System.arraycopy(mReadBuffer, 0, readBytes, 0, size);
 
-                Log.i(TAG, "run: readBytes = " + new String(readBytes));
+//                Log.i(TAG, "run: readBytes = " + new String(readBytes));
                 onDataReceived(readBytes);
 
             } catch (IOException e) {

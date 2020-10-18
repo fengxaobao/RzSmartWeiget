@@ -6,7 +6,7 @@ import com.rz.smart.R
 import com.rz.smart.model.entity.CuisineInfo
 
 
-class GoodsAdapter(it: List<CuisineInfo>) : BaseQuickAdapter<CuisineInfo, BaseViewHolder>(
+class GoodsAdapter() : BaseQuickAdapter<CuisineInfo, BaseViewHolder>(
     R.layout.adapter_menu_item
 ) {
     override fun convert(

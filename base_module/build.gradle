@@ -48,9 +48,6 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api project(":command_lib")
-
-    api project(":keeplive")
-
     api deps.app_compat
     api deps.material
     api deps.constraint_layout    //约束布局

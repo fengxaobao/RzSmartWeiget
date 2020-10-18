@@ -26,19 +26,19 @@ class SmartRepository : BaseNetRepository() {
 
 
     private suspend fun requestAllCuisine(): Results<BaseResponse<List<CuisineInfo>>> {
-
-        val response = service.getAllCuisine("02", "")
+        val hashMap = HashMap<String,String>()
+        val response = service.getAllCuisine("02", hashMap)
         return executeAnyResponse(response)
     }
 
-    suspend fun uploadCuisine(goodId: Long, weight: Double): Results<BaseResponse<UploadMenuInfo>>{
+    suspend fun uploadCuisine(goodId: Long, weight: Double): Results<BaseResponse<List<UploadMenuInfo>>>{
         return safeApiCall(
             call = { requestUploadCuisine(goodId,weight) },
             errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
         )
     }
 
-    private suspend fun requestUploadCuisine(goodId: Long, weight: Double): Results<BaseResponse<UploadMenuInfo>> {
+    private suspend fun requestUploadCuisine(goodId: Long, weight: Double): Results<BaseResponse<List<UploadMenuInfo>>> {
         val jsonObject = JsonObject()
         jsonObject.addProperty("goodId",goodId)
         jsonObject.addProperty("weight",weight)
