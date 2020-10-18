@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!--dialog-->
+    <string name="command_dialog_tip">提示</string>
+    <string name="command_dialog_cancel">取消</string>
+    <string name="command_dialog_confirm">確定</string>
+</resources>

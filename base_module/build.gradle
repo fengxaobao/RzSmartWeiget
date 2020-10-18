@@ -1,0 +1,100 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        multiDexEnabled true
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        if (Module.name == 1) {
+            buildConfigField "String", "UEMNG_KEY", "\"5edb4596570df3fbaa000061\"" //BMN
+            buildConfigField "String", "UEMNG_MESSAGE_SECRET", "\"bf7c0dc2b62635619022256b35985803\"" //BMN
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8
+        }
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            abiFilters 'armeabi'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api project(":command_lib")
+
+    api project(":keeplive")
+
+    api deps.app_compat
+    api deps.material
+    api deps.constraint_layout    //约束布局
+    api deps.fragment.runtime_ktx
+    api deps.recyclerview
+    api deps.cardview
+    api deps.room.runtime
+    api deps.lifecycle.runtime
+    api deps.paging_ktx
+    api deps.kotlin.stdlib
+
+    api deps.lifecycle.viewmodel_ktx
+
+    implementation deps.core_ktx
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.activity.activity_ktx
+
+
+    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    //或者指明使用viewmodel
+    api "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    //或者指明使用livedata
+    api 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+    api 'androidx.lifecycle:lifecycle-livedata-core:2.2.0'
+
+    //注解使用生命周期编译器
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor deps.lifecycle.compiler
+
+    //web
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+
+    //分包
+    api "androidx.multidex:multidex:${versions.multidex_version}"
+
+    //LeakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
+
+    //  缓存设计
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    // RxJava
+    api deps.rx_android
+    api deps.rxjava2
+}

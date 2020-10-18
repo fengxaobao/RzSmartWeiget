@@ -1,0 +1,9 @@
+include ':recycleView_libs'
+include ':base_module'
+include ':keeplive'
+include ':umengLibs'
+include ':command_lib'
+include ':utils'
+include ':SerialPortLibrary'
+include ':app'
+rootProject.name = "SmartWeiget"

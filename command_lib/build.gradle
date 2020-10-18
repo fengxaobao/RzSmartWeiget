@@ -1,0 +1,96 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8
+        }
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            abiFilters 'armeabi'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api deps.app_compat
+    api deps.core_ktx
+    implementation deps.kotlin.stdlib
+    api project(":utils")
+    api project(":umengLibs")
+
+    //toast
+    api 'com.github.GrenderG:Toasty:1.4.2'
+    //log
+    api 'com.orhanobut:logger:2.2.0'
+
+
+    api 'com.squareup.retrofit2:retrofit:2.7.1'
+    api 'com.squareup.retrofit2:converter-gson:2.6.2'
+    api deps.okhttp_logging_interceptor
+
+    // Koin for Android
+    api "org.koin:koin-androidx-ext:2.0.1"
+    // or Koin for Lifecycle scoping
+    api 'org.koin:koin-androidx-scope:2.0.1'
+    // or Koin for Android Architecture ViewModel
+    api 'org.koin:koin-androidx-viewmodel:2.0.1'
+
+    implementation deps.glide.runtime
+    implementation deps.glide.compiler
+    implementation deps.glide.annotations
+    api "org.greenrobot:eventbus:3.2.0"
+    api 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //fragmentationx
+    api 'me.yokeyword:fragmentationx:1.0.2'
+    api 'me.yokeyword:fragmentationx-core:1.0.2'
+    api 'me.yokeyword:fragmentationx-swipeback:1.0.2'
+
+    api 'com.github.jdsjlzx:LRecyclerView:1.5.4.3'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'com.alibaba:fastjson:1.2.59'
+    implementation files('libs/mail.jar')
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    api 'com.github.zcweng:switch-button:0.0.3@aar'
+    api 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+
+    //下拉刷新组件
+    api  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    api  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+
+    api deps.coroutines.android
+    api deps.coroutines.test
+}
+

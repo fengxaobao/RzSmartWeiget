@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="WaveView">
+        <!--圆颜色-->
+        <attr name="wave_color" format="color" />
+        <!--中心圆图片半径-->
+        <attr name="wave_coreImageRadius" format="integer" />
+        <!--波浪圆之间间距,值越小越窄-->
+        <attr name="wave_width" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="TabLayoutView">
+        <attr name="tlv_text_color" format="color" />
+        <attr name="tlv_text_size" format="dimension" />
+        <attr name="tlv_indicator_width" format="dimension" />
+        <attr name="tlv_selectedTextBold" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SafeKeyboardView">
+        <attr name="random_digit" format="boolean" />                   <!-- 数字随机显示 -->
+        <attr name="remember_last_type" format="boolean" />             <!-- 记住上次键盘输入类型 -->
+        <attr name="enable_vibrate" format="boolean" />                 <!-- 开启震动 -->
+    </declare-styleable>
+</resources>
