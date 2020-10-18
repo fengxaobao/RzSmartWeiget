@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="center_vertical"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_80"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_100"
+    android:layout_height="@dimen/dp_100"
     android:layout_marginTop="@dimen/dp_20"
-    android:orientation="horizontal">
+    android:gravity="center_vertical"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_centerVertical="true"
         android:id="@+id/menuIcon"
-        android:layout_width="@dimen/dp_60"
-        android:layout_height="@dimen/dp_60"
-        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:src="@mipmap/menu_icon" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/menuName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_5"
-        android:layout_toRightOf="@id/menuIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp_5"
         android:text="萝卜"
         android:textSize="20sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/menuPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp_100"
         android:layout_height="wrap_content"
         android:layout_below="@id/menuName"
+        android:layout_gravity="center"
         android:layout_marginLeft="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_5"
         android:layout_toRightOf="@id/menuIcon"
+        android:gravity="center"
         android:text="10.0"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/menuWeight"
@@ -44,6 +49,7 @@
         android:layout_marginTop="@dimen/dp_5"
         android:layout_toRightOf="@id/menuIcon"
         android:text="库存：10"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
-</RelativeLayout>
+</LinearLayout>
