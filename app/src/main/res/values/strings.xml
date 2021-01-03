@@ -6,4 +6,7 @@
     <string name="net_connection_fail">数据获取失败</string>
     <string name="comm_please_price">请输入价格</string>
 
+    <string name="please_login">请登录</string>
+    <string name="please_relogin">二次登陆验证</string>
+
 </resources>

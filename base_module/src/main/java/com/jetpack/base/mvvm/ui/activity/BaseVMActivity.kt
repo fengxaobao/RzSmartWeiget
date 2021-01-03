@@ -37,4 +37,8 @@ abstract class BaseVMActivity<VM : BaseViewModel>(useDataBinding: Boolean = true
     abstract fun initView()
     abstract fun startObserve()
 
+    override fun scheduleLogic() {
+
+    }
+
 }

@@ -89,6 +89,7 @@ public class SerialPortManager extends SerialPort {
         }
         // 停止发送消息的线程
         stopSendThread();
+
         // 停止接收消息的线程
         stopReadThread();
 
