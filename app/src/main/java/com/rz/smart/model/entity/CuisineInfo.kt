@@ -1,92 +1,24 @@
 package com.rz.smart.model.entity
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
-
-/**
- * 作者：iss on 2020/10/18 10:05
- * 邮箱：55921173@qq.com
- * 类备注：
- */
-class CuisineInfo : Serializable {
-    @Expose
-    @SerializedName("F_DELETEFLAG")
-    var F_DELETEFLAG = 0
-
-    @Expose
-    @SerializedName("F_DELETEDATE")
-    var F_DELETEDATE: String? = null
-
-    @Expose
-    @SerializedName("F_DELETEUSERNAME")
-    var F_DELETEUSERNAME: String? = null
-
-    @Expose
-    @SerializedName("F_DELETEUSERID")
-    var F_DELETEUSERID = 0
-
-    @Expose
-    @SerializedName("F_UPDATEDATE")
-    var F_UPDATEDATE: String? = null
-
-    @Expose
-    @SerializedName("F_UPDATEUSERNAME")
-    var F_UPDATEUSERNAME: String? = null
-
-    @Expose
-    @SerializedName("F_UPDATEUSERID")
-    var F_UPDATEUSERID = 0
-
-    @Expose
-    @SerializedName("F_INSERTDATE")
-    var F_INSERTDATE: String? = null
-
-    @Expose
-    @SerializedName("F_INSERTUSERNAME")
-    var F_INSERTUSERNAME: String? = null
-
-    @Expose
-    @SerializedName("F_INSERTUSERID")
-    var F_INSERTUSERID = 0
-
-    @Expose
-    @SerializedName("F_ORDER")
-    var F_ORDER = 0
-
-    @Expose
-    @SerializedName("F_MEMO")
-    var F_MEMO: String? = null
-
-    @Expose
-    @SerializedName("F_Money")
-    var F_Money = 0.0
-
-    @Expose
-    @SerializedName("F_Weight")
-    var F_Weight = 0.0
-
-    @Expose
-    @SerializedName("F_TypeID")
-    var F_TypeID = 0
-
-    @Expose
-    @SerializedName("F_ComparyID")
-    var F_ComparyID = 0
-
-    @Expose
-    @SerializedName("F_ALIAS")
-    var F_ALIAS: String? = null
-
-    @Expose
-    @SerializedName("F_NAME")
-    var F_NAME: String? = null
-
-    @Expose
-    @SerializedName("F_CODE")
-    var F_CODE: String? = null
-
-    @Expose
-    @SerializedName("F_ID")
-    var F_ID = 0L
+class CuisineInfo {
+    /**
+     * GoodsID : 4
+     * GoodsCode : 04
+     * GoodsName : 马铃薯
+     * SupplierID : 1
+     * SupplierName : 农夫山泉
+     * GoodsTypeID : 30
+     * GoodsTypeName : 饮用水
+     * CostPrice : 3.0
+     * GoodsStock : 40
+     */
+     val GoodsID: String? = null
+     val GoodsCode: String? = null
+     val GoodsName: String? = null
+     val SupplierID: String? = null
+     val SupplierName: String? = null
+     val GoodsTypeID: String? = null
+     val GoodsTypeName: String? = null
+     val CostPrice: String? = null
+     val GoodsStock: String? = null
 }

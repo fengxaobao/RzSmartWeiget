@@ -19,9 +19,8 @@ package com.jetpack.base.mvvm.bean
  */
 
 data class BaseResponse<out T>(
-    val Code: Int,
-    val Msg: String,
+    val Status: Int,
+    val Message: String,
     val Data: T? = null,
-    val MenuList: T? = null,
-    val UpLoadList: T? = null
+    val Sign: String? = null
 )

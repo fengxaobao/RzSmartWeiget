@@ -13,7 +13,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.orhanobut.logger.Logger
 import com.rz.smart.R
 import com.rz.smart.model.MainViewModel
-import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
 import com.rz.smart.ui.adapter.GoodsAdapter
 import es.dmoral.toasty.Toasty

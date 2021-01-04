@@ -4,7 +4,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.jetpack.base.mvvm.checkResult
 import com.jetpack.base.mvvm.ui.application.BaseApplication
 import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.kongqw.serialportlibrary.Device

@@ -3,7 +3,6 @@ package com.rz.smart.ui.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.rz.smart.R
-import com.rz.smart.model.entity.CuisineInfo
 
 
 class GoodsAdapter() : BaseQuickAdapter<CuisineInfo, BaseViewHolder>(
