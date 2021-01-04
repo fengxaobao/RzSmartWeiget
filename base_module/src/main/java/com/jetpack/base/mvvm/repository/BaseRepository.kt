@@ -35,9 +35,9 @@ open class BaseRepository {
     ): Results<T> {
         return coroutineScope {
             Logger.e(response.toString())
-            if (response.Code != 0) {
+            if (response.Status != 0) {
                 errorBlock?.let { it() }
-                Results.Error(IOException(response.Msg))
+                Results.Error(IOException(response.Message))
             } else {
                 successBlock?.let { it() }
                 //传入的返回类型可以为null

@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.jetpack.base.mvvm.checkResult
 import com.jetpack.base.mvvm.ui.application.BaseApplication
 import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.kongqw.serialportlibrary.Device
@@ -29,9 +30,9 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
 
     fun getAllCuisine() {
         launchOnUI {
-            val result = roomRepository.getAllCuisine()
+            val result = roomRepository.getGoodsData("123")
             result.checkResult({
-                allCuisineInfo.postValue(it?.MenuList)
+                allCuisineInfo.postValue(it?.Data)
             }, {
                 it?.let { it1 ->
                     Toasty.error(BaseApplication.instance(), it1).show()
@@ -42,20 +43,20 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
 
     fun uploadCuisine(GoodId: Long, Weight: Double) {
         launchOnUI {
-            val result = roomRepository.uploadCuisine(GoodId, Weight)
+            val result = roomRepository.setGoodsWeight("","","","","","","")
             result.checkResult({
-                val upLoadList = it!!.UpLoadList
-                if (null != upLoadList) {
-                    val info = upLoadList[0]
-                    val liveData = allCuisineInfo.value
-                    val find = liveData?.find { it.F_ID == info.F_GoodId }
-                    find?.let { find ->
-                        find.F_Money = info.F_Money
-                        find.F_Weight = info.F_Weight
-                    }
-                    allCuisineInfo.postValue(liveData)
-                }
-                uploadMenuInfo.postValue(it?.UpLoadList)
+//                val upLoadList = it!!.UpLoadList
+//                if (null != upLoadList) {
+//                    val info = upLoadList[0]
+//                    val liveData = allCuisineInfo.value
+//                    val find = liveData?.find { it.F_ID == info.F_GoodId }
+//                    find?.let { find ->
+//                        find.F_Money = info.F_Money
+//                        find.F_Weight = info.F_Weight
+//                    }
+//                    allCuisineInfo.postValue(liveData)
+//                }
+//                uploadMenuInfo.postValue(it?.UpLoadList)
             }, {
                 it?.let { it1 ->
                     Toasty.error(BaseApplication.instance(), it1).show()
