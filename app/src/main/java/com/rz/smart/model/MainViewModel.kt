@@ -41,7 +41,7 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
         }
     }
 
-    fun uploadCuisine(GoodId: Long, Weight: Double) {
+    fun uploadCuisine(GoodId: String?, Weight: Double) {
         launchOnUI {
             val result = roomRepository.setGoodsWeight("","","","","","","")
             result.checkResult({

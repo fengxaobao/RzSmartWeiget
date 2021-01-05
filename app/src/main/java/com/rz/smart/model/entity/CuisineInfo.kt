@@ -1,6 +1,8 @@
 package com.rz.smart.model.entity
 
-class CuisineInfo {
+import java.io.Serializable
+
+class CuisineInfo :Serializable{
     /**
      * GoodsID : 4
      * GoodsCode : 04
@@ -21,4 +23,5 @@ class CuisineInfo {
      val GoodsTypeName: String? = null
      val CostPrice: String? = null
      val GoodsStock: String? = null
+     val GoodsWeight: Double = 0.0
 }

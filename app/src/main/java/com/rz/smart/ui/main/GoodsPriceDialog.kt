@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.DialogFragment
 import com.rz.smart.R
+import com.rz.smart.model.entity.CuisineInfo
 import kotlinx.android.synthetic.main.dialog_goods.*
 
 /**
@@ -44,7 +45,7 @@ class GoodsPriceDialog : DialogFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        goodName.text = "${goodEntity.F_NAME}"
+        goodName.text = "${goodEntity.GoodsName}"
         dialogCloseImg.setOnClickListener {
             dismiss()
         }
@@ -71,7 +72,7 @@ class GoodsPriceDialog : DialogFragment() {
         val weight = split[0]
         if (price.isNotBlank()) {
             val weightDouble = weight.toDouble()
-            goodEntity.F_Weight = weightDouble
+//            goodEntity.GoodsStock = weightDouble
             if (null != backListener) {
                 backListener!!.callbackListener(goodEntity)
             }

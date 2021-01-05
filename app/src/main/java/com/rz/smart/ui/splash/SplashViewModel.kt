@@ -8,6 +8,4 @@ import com.jetpack.base.mvvm.vm.BaseViewModel
  */
 class SplashViewModel : BaseViewModel(BaseApplication.instance()) {
 
-
-
 }
