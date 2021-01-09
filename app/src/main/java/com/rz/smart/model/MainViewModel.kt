@@ -30,9 +30,20 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
 
     fun getAllCuisine() {
         launchOnUI {
-            val result = roomRepository.getGoodsData("123")
+            val result = roomRepository.getGoodsData()
             result.checkResult({
-                allCuisineInfo.postValue(it?.Data)
+                if(null != it?.Data){
+                    allCuisineInfo.postValue(it?.Data)
+                }
+
+            }, {
+                it?.let { it1 ->
+                    Toasty.error(BaseApplication.instance(), it1).show()
+                }
+            })
+            val warehouseData = roomRepository.GetWarehouseData()
+            warehouseData.checkResult({
+
             }, {
                 it?.let { it1 ->
                     Toasty.error(BaseApplication.instance(), it1).show()
@@ -43,7 +54,7 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
 
     fun uploadCuisine(GoodId: String?, Weight: Double) {
         launchOnUI {
-            val result = roomRepository.setGoodsWeight("","","","","","","")
+            val result = roomRepository.setGoodsWeight("","","","","","","","")
             result.checkResult({
 //                val upLoadList = it!!.UpLoadList
 //                if (null != upLoadList) {

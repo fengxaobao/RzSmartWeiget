@@ -44,7 +44,6 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
 
                 _viewModel.userName = userName
                 _viewModel.userPwd = passWord
-
                 mActivity?.changeToReLogin()
             }
         }

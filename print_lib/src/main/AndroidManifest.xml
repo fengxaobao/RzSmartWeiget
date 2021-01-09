@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SerialPortList" />
+        <activity android:name=".UsbDeviceList" />
+        <activity android:name=".BluetoothDeviceList" />
+        <activity android:name=".ConnMoreDevicesActivity" />
+        SerialPortList
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import com.rz.smart.model.request.LoginRequest
 import com.rz.smart.model.request.GoodsWeightRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * 作者：iss on 2020/6/1 10:56
@@ -25,17 +26,13 @@ interface SmartService {
 
      */
     @POST("GetGoodsData")
-    suspend fun GetGoodsData(
-            @Body data: GoodDataRequest
-    ): BaseResponse<List<CuisineInfo>>
-
+    suspend fun GetGoodsData( @Body data: GoodDataRequest): BaseResponse<List<CuisineInfo>>
 
     //3.获取库房数据接口
     @POST("GetWarehouseData")
     suspend fun GetWarehouseData(
             @Body data: GoodDataRequest
     ): BaseResponse<List<UploadMenuInfo>>
-
 //    /**
 //    上传称重数据接口
 //
@@ -62,7 +59,7 @@ interface SmartService {
      */
     @POST("SetGoodsWeight")
     suspend fun SetGoodsWeight(
-        @Body goodsWeightRequest: GoodsWeightRequest
+            @Body goodsWeightRequest: GoodsWeightRequest
     ): BaseResponse<Any>
 
     @POST("SysUserLogin")

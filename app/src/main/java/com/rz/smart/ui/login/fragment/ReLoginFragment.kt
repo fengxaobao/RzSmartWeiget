@@ -31,11 +31,6 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
         fun newInstance() = ReLoginFragment()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
-
     override fun getLayoutResId(): Int = R.layout.re_login_fragment
 
     override fun initVM(): LoginViewModel = getViewModel()

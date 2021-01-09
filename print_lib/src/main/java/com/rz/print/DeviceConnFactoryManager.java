@@ -30,6 +30,7 @@ import static com.rz.print.DeviceConnFactoryManager.CONN_METHOD.USB;
  * Time 2017/8/2
  */
 public class DeviceConnFactoryManager {
+
     private Context application;
 
     public PortManager mPort;
