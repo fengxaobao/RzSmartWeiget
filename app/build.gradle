@@ -47,6 +47,7 @@ dependencies {
     implementation project(":base_module")
     implementation project(":SerialPortLibrary")
     implementation project(":recycleView_libs")
+    implementation project(":print_lib")
 
     implementation deps.kotlin.stdlib
     api deps.app_compat

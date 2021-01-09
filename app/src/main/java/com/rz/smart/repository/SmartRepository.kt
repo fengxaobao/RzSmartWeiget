@@ -47,10 +47,7 @@ class SmartRepository : BaseNetRepository() {
         )
     }
 
-    /**
-    @Query("EquipmentID") EquipmentID: String,
-    @Query("Sign") Sign: String
-     */
+
 
     private suspend fun requestGetGoodsData(): Results<BaseResponse<List<CuisineInfo>>> {
         val hash = getMutableMaps()
@@ -65,17 +62,6 @@ class SmartRepository : BaseNetRepository() {
     }
 
 
-    /**
-     *   @Query("Code") Code: String,
-    @Query("EquipmentID") EquipmentID: String,
-    @Query("OperatorName") OperatorName: String,
-    @Query("GoodsID") GoodsID: String,
-    @Query("SupplierID") SupplierID: String,
-    @Query("GoodsWeight") GoodsWeight: String,
-    @Query("WarehouseID") WarehouseID: String,
-    @Query("Remark") Remark: String,
-    @Query("Sign") Sign: String
-     */
     suspend fun setGoodsWeight(
             OperatorName: String,
             GoodsID: String,

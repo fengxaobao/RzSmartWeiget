@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import com.jetpack.base.mvvm.logD
 import com.rz.smart.R
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
@@ -100,7 +101,7 @@ class GoodsPriceDialog : DialogFragment() {
 
         add_type.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                "onNothingSelected".logD()
             }
 
             override fun onItemSelected(
@@ -109,6 +110,7 @@ class GoodsPriceDialog : DialogFragment() {
                 position: Int,
                 id: Long
             ) {
+                "onItemSelected".logD()
                 reuslt = CacheDataUtils.WARE_HOUSE_NAME_LIST.find { it.WarehouseName.equals(nameList[position])}!!
             }
 

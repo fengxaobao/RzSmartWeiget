@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dp_334"
     android:layout_height="wrap_content"
-    android:background="@color/common_cl_white">
+    android:background="@color/common_cl_white"
+    android:paddingBottom="@dimen/dp_30">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dialogCloseImg"
@@ -68,36 +68,35 @@
 
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_30"
         android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="请选择库仓:"
         android:textSize="@dimen/sp_16"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/settingTextInputLayout"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="@+id/settingTextInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/settingTextInputLayout"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/settingTextInputLayout" />
 
     <Spinner
-        android:layout_marginLeft="@dimen/dp_10"
         android:id="@+id/add_type"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_30"
         android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/dp_10"
         android:dropDownWidth="160dp"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/num"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="数量:"
         android:textSize="@dimen/sp_16"
@@ -106,17 +105,15 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:layout_marginLeft="@dimen/dp_10"
         android:id="@+id/goodsAmount"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_10"
         android:background="@null"
         android:hint=" 请输入数量"
-        android:textSize="@dimen/sp_12"
+        android:textSize="@dimen/sp_14"
         app:layout_constraintStart_toEndOf="@+id/num"
         app:layout_constraintTop_toTopOf="@+id/num" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
