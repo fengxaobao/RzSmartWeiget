@@ -75,7 +75,7 @@ class MainFragment : Fragment() {
                 }
                 adapter.setAnimationWithDefault(BaseQuickAdapter.AnimationType.ScaleIn)
                 adapter.animationEnable = true
-                menuRecyclerView.layoutManager = GridLayoutManager(activity!!, 5)
+                menuRecyclerView.layoutManager = GridLayoutManager(activity!!, 4)
                 menuRecyclerView.adapter = adapter
                 adapter.setList(it)
             })
