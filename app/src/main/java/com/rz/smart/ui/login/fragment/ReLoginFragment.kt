@@ -42,7 +42,7 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
     override fun initView() {
 
-        reLoginInput.editText.setText("kuguan1")
+        reLoginInput.editText.setText("kuguan2")
         rePasswordInput.editText.setText("123456")
     }
 

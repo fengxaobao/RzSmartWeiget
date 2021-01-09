@@ -6,9 +6,9 @@ import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
 import com.rz.smart.model.request.GoodDataRequest
 import com.rz.smart.model.request.LoginRequest
+import com.rz.smart.model.request.GoodsWeightRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 /**
  * 作者：iss on 2020/6/1 10:56
@@ -36,22 +36,33 @@ interface SmartService {
             @Body data: GoodDataRequest
     ): BaseResponse<List<UploadMenuInfo>>
 
+//    /**
+//    上传称重数据接口
+//
+//     */
+//    @POST("SetGoodsWeight")
+//    suspend fun SetGoodsWeight(
+//        @Query("Code") Code: String,
+//        @Query("EquipmentID") EquipmentID: String,
+//        @Query("OperatorName") OperatorName: String,
+//        @Query("GoodsID") GoodsID: String,
+//        @Query("SupplierID") SupplierID: String,
+//        @Query("GoodsWeight") GoodsWeight: String,
+//        @Query("WarehouseID") WarehouseID: String,
+//        @Query("Remark") Remark: String,
+//        @Query("Sign") Sign: String,
+//        token: String
+//
+//    ): BaseResponse<Any>
+
+
     /**
     上传称重数据接口
 
      */
     @POST("SetGoodsWeight")
     suspend fun SetGoodsWeight(
-            @Query("Code") Code: String,
-            @Query("EquipmentID") EquipmentID: String,
-            @Query("OperatorName") OperatorName: String,
-            @Query("GoodsID") GoodsID: String,
-            @Query("SupplierID") SupplierID: String,
-            @Query("GoodsWeight") GoodsWeight: String,
-            @Query("WarehouseID") WarehouseID: String,
-            @Query("Remark") Remark: String,
-            @Query("Sign") Sign: String
-
+        @Body goodsWeightRequest: GoodsWeightRequest
     ): BaseResponse<Any>
 
     @POST("SysUserLogin")
