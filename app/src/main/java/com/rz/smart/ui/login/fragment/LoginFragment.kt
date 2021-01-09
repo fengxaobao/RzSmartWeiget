@@ -27,8 +27,9 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
 
     }
 
-    override fun initData() {
 
+    override fun initData() {
+        _viewModel.login("孙明","KD562D","孙明","KD562D")
     }
 
     override fun startObserve() {

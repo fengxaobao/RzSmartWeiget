@@ -12,7 +12,7 @@ import com.rz.smart.R
 import com.rz.smart.ui.login.LoginActivity
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class ReLoginFragment : BaseVMFragment<ReLoginViewModel>() {
+class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
     private var mActivity: LoginActivity? = null
 
@@ -32,7 +32,7 @@ class ReLoginFragment : BaseVMFragment<ReLoginViewModel>() {
 
     override fun getLayoutResId(): Int = R.layout.re_login_fragment
 
-    override fun initVM(): ReLoginViewModel = getViewModel()
+    override fun initVM(): LoginViewModel = getViewModel()
 
     override fun initView() {
     }
