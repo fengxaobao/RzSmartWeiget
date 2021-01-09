@@ -27,6 +27,8 @@ class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseA
            result.checkResult({
                if (it?.Status== 0) {
                    CacheDataUtils.TOKEN = it?.Token
+                   CacheDataUtils.USERNAME1 = Operator1Name
+                   CacheDataUtils.USERNAME2 = Operator2Name
                    Toasty.success(app,"登录成功",Toasty.LENGTH_LONG).show()
                    userLoginSuccess.postValue(true)
                }else{

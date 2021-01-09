@@ -16,6 +16,7 @@ import com.rz.smart.model.MainViewModel
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
 import com.rz.smart.ui.adapter.GoodsAdapter
+import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.main_fragment.*
 
@@ -68,8 +69,35 @@ class MainFragment : Fragment() {
                     dialog!!.isCancelable = false
                     dialog!!.show(childFragmentManager, "GoodsPriceDialog")
                     dialog!!.setCallBackListener(object : GoodsPriceDialog.CallBackListener {
-                        override fun callbackListener(entity: CuisineInfo) {
-                            viewModel.uploadCuisine(entity.GoodsID, entity.GoodsWeight)
+
+//                        override fun callbackListener(
+//                            entity: CuisineInfo,
+//                            entit2y: UploadMenuInfo
+//                        ) {
+//                            viewModel.uploadCuisine(
+//                                CacheDataUtils.USERNAME1!!,
+//                                entity.GoodsID,
+//                                entity.SupplierID?.toInt()!!,
+//                                entity.GoodsWeight,
+//                                entity
+//
+//                            )
+//                        }
+
+                        override fun callbackListener(
+                            entity: CuisineInfo,
+                            entit2y: UploadMenuInfo,
+                            goodsAmount: String
+                        ) {
+                            viewModel.uploadCuisine(
+                                CacheDataUtils.USERNAME1!!,
+                                entity.GoodsID,
+                                entity.SupplierID?.toInt()!!,
+                                entity.GoodsWeight,
+                                goodsAmount.toInt(),
+                                entit2y.WarehouseID,
+                                "${CacheDataUtils.USERNAME1!!},${CacheDataUtils.USERNAME2!!}"
+                            )
                         }
                     })
                 }
@@ -81,6 +109,7 @@ class MainFragment : Fragment() {
             })
         viewModel.uploadMenuInfoLiveData.observe(viewLifecycleOwner,
             Observer<List<UploadMenuInfo>> {
+                CacheDataUtils.WARE_HOUSE_NAME_LIST = it
                 Toasty.success(activity!!, "提交数据成功成功", Toast.LENGTH_LONG).show()
             })
     }

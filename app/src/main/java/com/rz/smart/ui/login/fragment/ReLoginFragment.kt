@@ -59,6 +59,7 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
                 val intent = Intent()
                 intent.setClass(requireActivity(),MainActivity::class.java)
                 startActivity(intent)
+                mActivity?.finish()
 //                startActivity(Intent(this@))
             }
         })

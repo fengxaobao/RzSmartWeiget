@@ -77,7 +77,6 @@ class SmartRepository : BaseNetRepository() {
     @Query("Sign") Sign: String
      */
     suspend fun setGoodsWeight(
-            EquipmentID: String,
             OperatorName: String,
             GoodsID: String,
             SupplierID: String,
@@ -89,7 +88,6 @@ class SmartRepository : BaseNetRepository() {
         return safeApiCall(
                 call = {
                     requestSetGoodsWeight(
-                            EquipmentID,
                             OperatorName,
                             GoodsID,
                             SupplierID,
@@ -109,7 +107,6 @@ class SmartRepository : BaseNetRepository() {
      */
 
     private suspend fun requestSetGoodsWeight(
-            EquipmentID: String,
             OperatorName: String,
             GoodsID: String,
             SupplierID: String,
@@ -120,7 +117,7 @@ class SmartRepository : BaseNetRepository() {
     ): Results<BaseResponse<Any>> {
         val hash = getMutableMaps()
         hash.put("Code", "04")
-        hash.put("EquipmentID", EquipmentID)
+        hash.put("EquipmentID",  RxDeviceTool.serialNumber!!)
         hash.put("OperatorName", OperatorName)
         hash.put("GoodsID", GoodsID)
         hash.put("SupplierID", SupplierID)
@@ -128,11 +125,12 @@ class SmartRepository : BaseNetRepository() {
         hash.put("GoodsAmount", GoodsAmount)
         hash.put("WarehouseID", WarehouseID)
         hash.put("Remark", Remark)
+        hash.put("Token", CacheDataUtils.TOKEN!!)
         val sign = getSign(map = hash)
         val response = service.SetGoodsWeight(
                 GoodsWeightRequest(
                         "04",
-                        EquipmentID,
+                    RxDeviceTool.serialNumber!!,
                         OperatorName,
                         GoodsID,
                         SupplierID,

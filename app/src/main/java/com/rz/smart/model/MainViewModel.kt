@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jetpack.base.mvvm.checkResult
+import com.jetpack.base.mvvm.logD
 import com.jetpack.base.mvvm.ui.application.BaseApplication
 import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.kongqw.serialportlibrary.Device
@@ -20,13 +21,18 @@ import java.io.File
 
 class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPortListener {
     var roomRepository: SmartRepository = SmartRepository()
+
     private val allCuisineInfo = MutableLiveData<List<CuisineInfo>>()
+
     val allCuisineInfoLiveData: LiveData<List<CuisineInfo>>
         get() = allCuisineInfo
 
     private val uploadMenuInfo = MutableLiveData<List<UploadMenuInfo>>()
+
     val uploadMenuInfoLiveData: LiveData<List<UploadMenuInfo>>
         get() = uploadMenuInfo
+
+//    private val uploadCuisineInfo = MutableLiveData<>
 
     fun getAllCuisine() {
         launchOnUI {
@@ -43,7 +49,9 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
             })
             val warehouseData = roomRepository.GetWarehouseData()
             warehouseData.checkResult({
-
+                if(it?.Data != null){
+                    uploadMenuInfo.postValue(it?.Data)
+                }
             }, {
                 it?.let { it1 ->
                     Toasty.error(BaseApplication.instance(), it1).show()
@@ -52,10 +60,17 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
         }
     }
 
-    fun uploadCuisine(GoodId: String?, Weight: Double) {
+    fun uploadCuisine(OperatorName:String,GoodId: String?,SupplierID:Int, GoodsWeight: Double,GoodsAmount:Int,WarehouseID:Int,Remark:String) {
         launchOnUI {
-            val result = roomRepository.setGoodsWeight("","","","","","","","")
+            val result = roomRepository.setGoodsWeight(OperatorName,GoodId!!,SupplierID.toString(),GoodsWeight.toString(),GoodsAmount.toString(),WarehouseID.toString(),Remark)
             result.checkResult({
+                if(it?.Status == 0){
+                    it.logD()
+                    Toasty.success(BaseApplication.instance(),"上报成功！",Toasty.LENGTH_LONG).show()
+                }else{
+                    it?.logD()
+                    Toasty.error(BaseApplication.instance(),"上报失败！！！",Toasty.LENGTH_LONG).show()
+                }
 //                val upLoadList = it!!.UpLoadList
 //                if (null != upLoadList) {
 //                    val info = upLoadList[0]
