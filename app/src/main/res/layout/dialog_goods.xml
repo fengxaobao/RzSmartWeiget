@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/dp_334"
-    android:layout_height="@dimen/dp_300"
-    android:background="@color/common_cl_white"
-    android:paddingBottom="@dimen/dp_60">
+    android:layout_height="wrap_content"
+    android:background="@color/common_cl_white">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dialogCloseImg"
@@ -41,7 +41,7 @@
             android:id="@+id/commWeight"
             style="@style/text_color_black_18"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
+            android:layout_height="@dimen/dp_50"
             android:hint="请把物品放到称上"
             android:imeOptions="actionGo"
             android:inputType="numberDecimal"
@@ -60,6 +60,7 @@
         android:layout_marginRight="@dimen/dp_50"
         android:enabled="false"
         android:text="@string/command_dialog_confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/num"
@@ -67,6 +68,7 @@
 
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_30"
@@ -74,12 +76,11 @@
         android:text="请选择库仓:"
         android:textSize="@dimen/sp_16"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/settingTextInputLayout"
-        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="@+id/settingTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/settingTextInputLayout"
-        app:layout_constraintVertical_bias="0.42000002" />
+         />
 
     <Spinner
         android:layout_marginLeft="@dimen/dp_10"
@@ -93,14 +94,13 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="10dp"
         android:id="@+id/num"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_30"
         android:gravity="center"
         android:text="数量:"
         android:textSize="@dimen/sp_16"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -115,6 +115,7 @@
         android:textSize="@dimen/sp_12"
         app:layout_constraintStart_toEndOf="@+id/num"
         app:layout_constraintTop_toTopOf="@+id/num" />
+
 
 
 
