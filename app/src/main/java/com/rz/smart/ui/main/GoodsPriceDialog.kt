@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.rz.smart.R
@@ -96,9 +97,23 @@ class GoodsPriceDialog : DialogFragment() {
             ArrayAdapter(activity!!, R.layout.item_type, nameList)
 
         add_type.adapter = adapter
-        add_type.setOnItemClickListener { parent, view, position, id ->
-            reuslt = CacheDataUtils.WARE_HOUSE_NAME_LIST.find { it.WarehouseName.equals(nameList[position])}!!
+
+        add_type.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                reuslt = CacheDataUtils.WARE_HOUSE_NAME_LIST.find { it.WarehouseName.equals(nameList[position])}!!
+            }
+
         }
+
 
     }
 
