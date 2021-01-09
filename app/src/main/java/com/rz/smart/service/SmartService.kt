@@ -4,7 +4,9 @@ package com.rz.bmn.service
 import com.jetpack.base.mvvm.bean.BaseResponse
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
-import retrofit2.http.FormUrlEncoded
+import com.rz.smart.model.request.GoodDataRequest
+import com.rz.smart.model.request.LoginRequest
+import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -24,18 +26,14 @@ interface SmartService {
      */
     @POST("GetGoodsData")
     suspend fun GetGoodsData(
-        @Query("Code") Code: String,
-        @Query("EquipmentID") EquipmentID: String,
-        @Query("Sign") Sign: String
+            @Body data: GoodDataRequest
     ): BaseResponse<List<CuisineInfo>>
 
 
     //3.获取库房数据接口
     @POST("GetWarehouseData")
     suspend fun GetWarehouseData(
-        @Query("Code") Code: String,
-        @Query("EquipmentID") EquipmentID: String,
-        @Query("Sign") Sign: String
+            @Body data: GoodDataRequest
     ): BaseResponse<List<UploadMenuInfo>>
 
     /**
@@ -44,25 +42,18 @@ interface SmartService {
      */
     @POST("SetGoodsWeight")
     suspend fun SetGoodsWeight(
-        @Query("Code") Code: String,
-        @Query("EquipmentID") EquipmentID: String,
-        @Query("OperatorName") OperatorName: String,
-        @Query("GoodsID") GoodsID: String,
-        @Query("SupplierID") SupplierID: String,
-        @Query("GoodsWeight") GoodsWeight: String,
-        @Query("WarehouseID") WarehouseID: String,
-        @Query("Remark") Remark: String,
-        @Query("Sign") Sign: String
+            @Query("Code") Code: String,
+            @Query("EquipmentID") EquipmentID: String,
+            @Query("OperatorName") OperatorName: String,
+            @Query("GoodsID") GoodsID: String,
+            @Query("SupplierID") SupplierID: String,
+            @Query("GoodsWeight") GoodsWeight: String,
+            @Query("WarehouseID") WarehouseID: String,
+            @Query("Remark") Remark: String,
+            @Query("Sign") Sign: String
 
     ): BaseResponse<Any>
 
     @POST("SysUserLogin")
-    suspend fun SysUserLogin(
-        @Query("Code") Code: String,
-        @Query("Operator1Name") Operator1Name: String,
-        @Query("Password1") Password1: String,
-        @Query("Operator2Name") Operator2Name: String,
-        @Query("Password2") Password2: String,
-        @Query("Sign") Sign: String
-    ): BaseResponse<Any>
+    suspend fun SysUserLogin(@Body login: LoginRequest): BaseResponse<Any>
 }

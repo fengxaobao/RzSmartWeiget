@@ -1,6 +1,5 @@
 package com.rz.smart.ui.login.fragment
 
-import androidx.lifecycle.ViewModel
 import com.jetpack.base.mvvm.checkResult
 import com.jetpack.base.mvvm.ui.application.BaseApplication
 import com.jetpack.base.mvvm.vm.BaseViewModel
@@ -8,7 +7,6 @@ import com.rz.smart.repository.LoginRepository
 import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
 import me.hgj.jetpackmvvm.callback.livedata.BooleanLiveData
-import me.hgj.jetpackmvvm.callback.livedata.StringLiveData
 
 class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseApplication.instance()) {
 

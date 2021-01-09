@@ -9,6 +9,8 @@ import com.rz.bmn.service.SmartService
 import com.rz.smart.R
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
+import com.rz.smart.model.request.GoodDataRequest
+import com.rz.smart.model.request.LoginRequest
 import com.rz.smart.service.BMNRetrofitClient
 import com.rz.smart.service.BmnBaseUrlConfig
 
@@ -18,8 +20,8 @@ class SmartRepository : BaseNetRepository() {
 
     suspend fun GetWarehouseData(EquipmentID: String): Results<BaseResponse<List<UploadMenuInfo>>> {
         return safeApiCall(
-            call = { requestGetWarehouseData(EquipmentID) },
-            errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
+                call = { requestGetWarehouseData(EquipmentID) },
+                errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
         )
     }
 
@@ -28,15 +30,15 @@ class SmartRepository : BaseNetRepository() {
         val hash = getMutableMaps()
         hash.put("EquipmentID", EquipmentID)
         val sign = getSign(map = hash)
-        val response = service.GetWarehouseData("04", EquipmentID, sign)
+        val response = service.GetWarehouseData(GoodDataRequest("04", EquipmentID, sign))
         return executeAnyResponse(response)
     }
 
 
     suspend fun getGoodsData(EquipmentID: String): Results<BaseResponse<List<CuisineInfo>>> {
         return safeApiCall(
-            call = { requestGetGoodsData(EquipmentID) },
-            errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
+                call = { requestGetGoodsData(EquipmentID) },
+                errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
         )
     }
 
@@ -49,7 +51,7 @@ class SmartRepository : BaseNetRepository() {
         val hash = getMutableMaps()
         hash.put("EquipmentID", EquipmentID)
         val sign = getSign(map = hash)
-        val response = service.GetGoodsData("04", EquipmentID, sign)
+        val response = service.GetGoodsData(GoodDataRequest("04", EquipmentID, sign))
         return executeAnyResponse(response)
     }
 
@@ -65,11 +67,10 @@ class SmartRepository : BaseNetRepository() {
     @Query("Remark") Remark: String,
     @Query("Sign") Sign: String
      */
-    suspend fun setGoodsWeight(EquipmentID: String,OperatorName:String,GoodsID:String
-    ,SupplierID:String,GoodsWeight:String,WarehouseID:String,Remark:String): Results<BaseResponse<Any>> {
+    suspend fun setGoodsWeight(EquipmentID: String, OperatorName: String, GoodsID: String, SupplierID: String, GoodsWeight: String, WarehouseID: String, Remark: String): Results<BaseResponse<Any>> {
         return safeApiCall(
-            call = { requestSetGoodsWeight(EquipmentID,OperatorName,GoodsID,SupplierID,GoodsWeight,WarehouseID,Remark) },
-            errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
+                call = { requestSetGoodsWeight(EquipmentID, OperatorName, GoodsID, SupplierID, GoodsWeight, WarehouseID, Remark) },
+                errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
         )
     }
 
@@ -79,13 +80,13 @@ class SmartRepository : BaseNetRepository() {
      */
 
     private suspend fun requestSetGoodsWeight(
-        EquipmentID: String,
-        OperatorName: String,
-        GoodsID: String,
-        SupplierID: String,
-        GoodsWeight: String,
-        WarehouseID: String,
-        Remark: String
+            EquipmentID: String,
+            OperatorName: String,
+            GoodsID: String,
+            SupplierID: String,
+            GoodsWeight: String,
+            WarehouseID: String,
+            Remark: String
     ): Results<BaseResponse<Any>> {
         val hash = getMutableMaps()
         hash.put("EquipmentID", EquipmentID)
@@ -96,25 +97,24 @@ class SmartRepository : BaseNetRepository() {
         hash.put("WarehouseID", WarehouseID)
         hash.put("Remark", Remark)
         val sign = getSign(map = hash)
-        val response = service.SetGoodsWeight("04", EquipmentID, OperatorName,GoodsID,SupplierID,GoodsWeight
-        ,WarehouseID,Remark,sign)
+        val response = service.SetGoodsWeight("04", EquipmentID, OperatorName, GoodsID, SupplierID, GoodsWeight, WarehouseID, Remark, sign)
         return executeAnyResponse(response)
     }
 
 
     suspend fun SysUserLogin(
-        Operator1Name: String, Password1: String, Operator2Name: String,
-        Password2: String
+            Operator1Name: String, Password1: String, Operator2Name: String,
+            Password2: String
     ): Results<BaseResponse<Any>> {
         return safeApiCall(
-            call = { requestSysUserLogin(Operator1Name, Password1, Operator2Name, Password2) },
-            errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
+                call = { requestSysUserLogin(Operator1Name, Password1, Operator2Name, Password2) },
+                errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
         )
     }
 
     private suspend fun requestSysUserLogin(
-        Operator1Name: String, Password1: String, Operator2Name: String,
-        Password2: String
+            Operator1Name: String, Password1: String, Operator2Name: String,
+            Password2: String
     ): Results<BaseResponse<Any>> {
         val hash = getMutableMaps()
         hash["Code"] = "04"
@@ -124,7 +124,8 @@ class SmartRepository : BaseNetRepository() {
         hash["Password2"] = Password2
         val sign = getSign(map = hash)
         val response =
-            service.SysUserLogin("04", Operator1Name, Password1, Operator2Name, Password2, sign)
+                service.SysUserLogin(LoginRequest("04", Operator1Name, Password1, Operator2Name,
+                        Password2, sign))
         return executeAnyResponse(response)
     }
 
