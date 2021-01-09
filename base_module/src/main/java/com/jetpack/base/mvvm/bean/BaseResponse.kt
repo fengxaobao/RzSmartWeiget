@@ -22,5 +22,5 @@ data class BaseResponse<out T>(
     val Status: Int,
     val Message: String,
     val Data: T? = null,
-    val Sign: String? = null
+    val Token: String? = null
 )

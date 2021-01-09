@@ -34,7 +34,7 @@ class SplashActivity : BaseVMActivity<SplashViewModel>() {
         Observable.timer(2000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.newThread()).subscribe {
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
                 overridePendingTransition(R.anim.zoom_small_in, R.anim.zoom_small_out)
             }
     }

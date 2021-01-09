@@ -16,10 +16,10 @@ object BmnBaseUrlConfig : BaseUrlConfig() {
     override fun UrlKey(): String = "O9bXoVrIXd1498617048B10VuB7K88F"
 
     override fun getFormatUrl(): String {
-        return "http://40.72.98.199:8081"
+        return "http://40.72.98.199:8081/API/EWCApi/"
     }
 
     override fun getTestUrl(): String {
-        return "http://40.72.98.199:8081"
+        return "http://40.72.98.199:8081/API/EWCApi/"
     }
 }

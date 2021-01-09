@@ -21,7 +21,7 @@ interface SmartService {
     Sign	String		Token标识
 
      */
-    @POST("EWCApi/GetGoodsData")
+    @POST("GetGoodsData")
     suspend fun GetGoodsData(
         @Query("Code") Code: String,
         @Query("EquipmentID") EquipmentID: String,
@@ -30,7 +30,7 @@ interface SmartService {
 
 
     //3.获取库房数据接口
-    @POST("EWCApi/GetWarehouseData")
+    @POST("GetWarehouseData")
     suspend fun GetWarehouseData(
         @Query("Code") Code: String,
         @Query("EquipmentID") EquipmentID: String,
@@ -41,7 +41,7 @@ interface SmartService {
     上传称重数据接口
 
      */
-    @POST("EWCApi/SetGoodsWeight")
+    @POST("SetGoodsWeight")
     suspend fun SetGoodsWeight(
         @Query("Code") Code: String,
         @Query("EquipmentID") EquipmentID: String,
@@ -55,7 +55,7 @@ interface SmartService {
 
     ): BaseResponse<Any>
 
-    @POST("EWCApi/SysUserLogin")
+    @POST("SysUserLogin")
     suspend fun SysUserLogin(
         @Query("Code") Code: String,
         @Query("Operator1Name") Operator1Name: String,

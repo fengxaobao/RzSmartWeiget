@@ -117,11 +117,11 @@ class SmartRepository : BaseNetRepository() {
         Password2: String
     ): Results<BaseResponse<Any>> {
         val hash = getMutableMaps()
-        hash.put("Code", "04")
-        hash.put("Operator1Name", Operator1Name)
-        hash.put("Password1", Password1)
-        hash.put("Operator2Name", Operator2Name)
-        hash.put("Password2", Password2)
+        hash["Code"] = "04"
+        hash["Operator1Name"] = Operator1Name
+        hash["Password1"] = Password1
+        hash["Operator2Name"] = Operator2Name
+        hash["Password2"] = Password2
         val sign = getSign(map = hash)
         val response =
             service.SysUserLogin("04", Operator1Name, Password1, Operator2Name, Password2, sign)
