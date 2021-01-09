@@ -70,8 +70,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center_vertical"
         android:layout_marginHorizontal="@dimen/dp_30"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/goodsConfirm"
         app:layout_constraintTop_toBottomOf="@+id/settingTextInputLayout">
 
@@ -91,19 +91,19 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dp_5"
             android:dropDownWidth="160dp"
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="@dimen/dp_5"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_marginStart="@dimen/dp_10"
             android:id="@+id/num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_10"
             android:text="数量:"
             android:textSize="@dimen/sp_16"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -115,8 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/num"
-           >
+            app:layout_constraintStart_toEndOf="@+id/num">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/goodsAmount"

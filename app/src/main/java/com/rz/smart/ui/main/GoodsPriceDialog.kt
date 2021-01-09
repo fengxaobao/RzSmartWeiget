@@ -92,13 +92,13 @@ class GoodsPriceDialog : DialogFragment() {
         }
 
 
-//        val adapter: ArrayAdapter<String> =
-//            ArrayAdapter(activity!!, R.layout.item_type, nameList)
-//
-//        add_type.adapter = adapter
-//        add_type.setOnItemClickListener { parent, view, position, id ->
-//            reuslt = CacheDataUtils.WARE_HOUSE_NAME_LIST.find { it.WarehouseName.equals(nameList[position])}!!
-//        }
+        val adapter: ArrayAdapter<String> =
+            ArrayAdapter(activity!!, R.layout.item_type, nameList)
+
+        add_type.adapter = adapter
+        add_type.setOnItemClickListener { parent, view, position, id ->
+            reuslt = CacheDataUtils.WARE_HOUSE_NAME_LIST.find { it.WarehouseName.equals(nameList[position])}!!
+        }
 
     }
 
