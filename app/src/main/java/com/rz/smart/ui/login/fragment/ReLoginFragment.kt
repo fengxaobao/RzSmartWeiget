@@ -41,6 +41,9 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun initVM(): LoginViewModel = getViewModel()
 
     override fun initView() {
+
+        reLoginInput.editText.setText("kuguan1")
+        rePasswordInput.editText.setText("123456")
     }
 
     override fun initData() {
@@ -68,8 +71,8 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
 
     fun checkInput(): Boolean{
-        reUserName = loginInput.text.toString().trim()
-        reUserName = passwordInput.text.toString().trim()
+        reUserName = reLoginInput.text.toString().trim()
+        reUserName = rePasswordInput.text.toString().trim()
         if (reUserName.isEmpty()) {
             Toasty.error(activity!!,"请输入账户", Toasty.LENGTH_LONG).show()
             return false

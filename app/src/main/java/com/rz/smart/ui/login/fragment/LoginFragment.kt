@@ -30,7 +30,8 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun initVM(): LoginViewModel = getViewModel()
 
     override fun initView() {
-
+        loginInput.getEditText().setText("kuguan1")
+        passwordInput.editText.setText("123456")
     }
 
     override fun initData() {
@@ -38,6 +39,9 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
         btnLogin.setOnClickListener {
             if(checkInput()){
 //                _viewModel.login("孙明","KD562D","孙明","KD562D")
+
+
+
                 _viewModel.userName = userName
                 _viewModel.userPwd = passWord
 
