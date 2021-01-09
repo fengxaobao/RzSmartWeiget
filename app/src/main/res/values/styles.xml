@@ -15,4 +15,15 @@
 
     </style>
 
+    <style name="white_text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/common_cl_white</item>
+        <item name="android:textSize">@dimen/text_title</item>
+    </style>
+
+    <style name="white_view">
+        <item name="android:width">@dimen/dp_2</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
 </resources>
