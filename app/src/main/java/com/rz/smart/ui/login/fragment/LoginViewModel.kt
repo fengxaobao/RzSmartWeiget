@@ -7,8 +7,16 @@ import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.rz.smart.repository.LoginRepository
 import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
+import me.hgj.jetpackmvvm.callback.livedata.BooleanLiveData
+import me.hgj.jetpackmvvm.callback.livedata.StringLiveData
 
 class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseApplication.instance()) {
+
+    var userLoginSuccess = BooleanLiveData()
+
+    var userName : String = ""
+    var userPwd : String = ""
+
     /**
      * Operator1Name	String	*	操作人1
     Password1	String	*	操作人1密码
@@ -22,9 +30,11 @@ class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseA
                if (it?.Status== 0) {
                    CacheDataUtils.TOKEN = it?.Token
                    Toasty.success(app,"登录成功",Toasty.LENGTH_LONG).show()
+                   userLoginSuccess.postValue(true)
                }else{
                    Toasty.error(app,"登录失败",Toasty.LENGTH_LONG).show()
 
+                   userLoginSuccess.postValue(false)
                }
            },{
                Toasty.error(app,"登录失败",Toasty.LENGTH_LONG).show()

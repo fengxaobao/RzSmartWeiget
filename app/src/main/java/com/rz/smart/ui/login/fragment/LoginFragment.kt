@@ -1,14 +1,20 @@
 package com.rz.smart.ui.login.fragment
 
 import android.content.Context
+import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.R
 import com.rz.smart.ui.login.LoginActivity
+import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class LoginFragment : BaseVMFragment<LoginViewModel>() {
 
     private var mActivity: LoginActivity? = null
+    private lateinit var userName: String
+    private lateinit var passWord: String
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,13 +33,46 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
 
     }
 
-
     override fun initData() {
-        _viewModel.login("孙明","KD562D","孙明","KD562D")
+
+        btnLogin.setOnClickListener {
+            if(checkInput()){
+//                _viewModel.login("孙明","KD562D","孙明","KD562D")
+                _viewModel.userName = userName
+                _viewModel.userPwd = passWord
+                var bundle:Bundle = Bundle();
+                bundle.putString("userName",_viewModel.userName)
+                bundle.putString("userName",_viewModel.userPwd)
+                this@LoginFragment.arguments = bundle
+                mActivity?.changeToReLogin()
+            }
+        }
+
     }
 
     override fun startObserve() {
+//        _viewModel.apply {
+//
+//            userLoginSuccess.observe(viewLifecycleOwner, Observer {
+//
+//
+//            })
+//
+//        }
+    }
 
+    fun checkInput(): Boolean{
+         userName = loginInput.text.toString().trim()
+        passWord = passwordInput.text.toString().trim()
+        if (userName.isEmpty()) {
+            Toasty.success(activity!!,"请输入账户", Toasty.LENGTH_LONG).show()
+            return false
+        }
+        if (passWord.isEmpty()) {
+            Toasty.success(activity!!,"请输入密码", Toasty.LENGTH_LONG).show()
+            return false
+        }
+        return true
     }
 
 }

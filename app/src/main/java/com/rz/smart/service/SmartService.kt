@@ -4,6 +4,7 @@ package com.rz.bmn.service
 import com.jetpack.base.mvvm.bean.BaseResponse
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import retrofit2.http.Query
 
