@@ -15,12 +15,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp_10">
+        android:layout_margin="@dimen/dp_5">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="@dimen/dp_150"
-            android:layout_height="@dimen/dp_150"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
             android:src="@mipmap/zlz"
@@ -28,16 +28,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
             android:id="@+id/tvGoodsCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="货品编号"
-            android:textSize="20sp"
+            android:textSize="@dimen/sp_12"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/tvCostPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCostPrice"
+            android:textColor="@color/common_cl_black_63"/>
 
         <TextView
             android:layout_marginStart="@dimen/dp_10"
@@ -48,7 +49,7 @@
             android:singleLine="true"
             android:text="货品名称"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="@dimen/sp_16"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvSupplierName"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -61,10 +62,11 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="供应商名称"
-            android:textSize="20sp"
+            android:textSize="@dimen/sp_12"
             app:layout_constraintBottom_toTopOf="@+id/tvGoodsTypeName"
             app:layout_constraintStart_toStartOf="@+id/tvGoodsName"
-            app:layout_constraintTop_toBottomOf="@+id/tvGoodsName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvGoodsName"
+            android:textColor="@color/common_cl_black_63"/>
 
         <TextView
             android:id="@+id/tvGoodsTypeName"
@@ -73,10 +75,11 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="货品类别名称"
-            android:textSize="20sp"
+            android:textSize="@dimen/sp_12"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/tvGoodsName"
-            app:layout_constraintTop_toBottomOf="@+id/tvSupplierName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvSupplierName"
+            android:textColor="@color/common_cl_black_63"/>
 
         <TextView
             android:id="@+id/tvCostPrice"
@@ -85,7 +88,8 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="采购价格"
-            android:textSize="28sp"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/common_cl_red_dark"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -97,9 +101,10 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text="现有库存"
-            android:textSize="28sp"
+            android:textSize="@dimen/sp_14"
             app:layout_constraintStart_toEndOf="@+id/tvCostPrice"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:textColor="@color/common_cl_black_63"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
