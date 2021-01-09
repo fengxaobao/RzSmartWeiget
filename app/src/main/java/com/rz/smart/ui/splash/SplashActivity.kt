@@ -37,6 +37,7 @@ class SplashActivity : BaseVMActivity<SplashViewModel>() {
             .subscribeOn(Schedulers.newThread()).subscribe {
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
                 overridePendingTransition(R.anim.zoom_small_in, R.anim.zoom_small_out)
+                finish()
             }
     }
 

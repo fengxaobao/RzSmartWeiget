@@ -44,8 +44,8 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
     }
 
     override fun initData() {
-        reUserName = loginInput.text.toString().trim()
-        reUserName = passwordInput.text.toString().trim()
+        reUserName = reLoginInput.text.toString().trim()
+        rePassWord = rePasswordInput.text.toString().trim()
         reBtnLogin.setOnClickListener {
             if(checkInput()){
                 //跳转main
@@ -61,6 +61,7 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
                 val intent = Intent()
                 intent.setClass(requireActivity(),MainActivity::class.java)
                 startActivity(intent)
+//                startActivity(Intent(this@))
             }
         })
     }

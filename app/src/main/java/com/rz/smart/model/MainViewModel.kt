@@ -68,9 +68,6 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
     fun openSerialPort(listener: SerialPortListener) {
         val device = Device("ttyS1", "serial", File("/dev/ttyS1"))
         val mSerialPortManager = SerialPortManager()
-
-        // 打开串口
-
         // 打开串口
         val openSerialPort: Boolean = mSerialPortManager.setOnOpenSerialPortListener(this)
             .setOnSerialPortDataListener(object : OnSerialPortDataListener {

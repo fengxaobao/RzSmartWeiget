@@ -56,14 +56,14 @@
                     android:layout_marginTop="@dimen/dp_15"/>
 
                 <com.rz.smart.widget.AccountInputView
-                    android:id="@+id/loginInput"
+                    android:id="@+id/reLoginInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_42"
                     android:layout_marginHorizontal="@dimen/dp_40"
                     android:layout_marginTop="@dimen/dp_20"/>
 
                 <com.rz.smart.widget.PasswordInputView
-                    android:id="@+id/passwordInput"
+                    android:id="@+id/rePasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_42"
                     android:layout_marginHorizontal="@dimen/dp_40"
