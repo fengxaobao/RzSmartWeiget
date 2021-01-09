@@ -34,13 +34,13 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     }
 
     override fun initData() {
-        _viewModel.login("kuguan1","123456","kuguan2","123456")
 
         btnLogin.setOnClickListener {
             if(checkInput()){
 //                _viewModel.login("孙明","KD562D","孙明","KD562D")
                 _viewModel.userName = userName
                 _viewModel.userPwd = passWord
+
                 mActivity?.changeToReLogin()
             }
         }
@@ -64,6 +64,5 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
         }
         return true
     }
-
 
 }

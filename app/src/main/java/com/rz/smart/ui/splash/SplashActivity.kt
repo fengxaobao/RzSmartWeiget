@@ -28,6 +28,7 @@ class SplashActivity : BaseVMActivity<SplashViewModel>() {
 
     }
 
+    @SuppressLint("CheckResult")
     override fun startObserve() {
        Logger.e("startObserve")
         //暂无逻辑处理 直接跳转登录

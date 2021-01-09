@@ -70,7 +70,7 @@
                     android:layout_marginTop="@dimen/dp_20" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLogin"
+                    android:id="@+id/reBtnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_45"
                     android:layout_marginHorizontal="@dimen/dp_40"

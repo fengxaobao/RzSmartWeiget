@@ -31,7 +31,6 @@ class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseA
                    userLoginSuccess.postValue(true)
                }else{
                    Toasty.error(app,"登录失败",Toasty.LENGTH_LONG).show()
-
                    userLoginSuccess.postValue(false)
                }
            },{
