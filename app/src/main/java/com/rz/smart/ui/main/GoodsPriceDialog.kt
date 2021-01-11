@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.jetpack.base.mvvm.logD
 import com.rz.smart.R
@@ -16,6 +17,7 @@ import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
 import com.rz.smart.utils.CacheDataUtils
 import com.uc.crashsdk.export.LogType.addType
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.dialog_goods.*
 
 
@@ -61,30 +63,30 @@ class GoodsPriceDialog : DialogFragment() {
         goodsConfirm.setOnClickListener {
             handlerConfirm()
         }
-        commWeight.addTextChangedListener(object : BmnTextWatcher() {
-            override fun afterTextChanged(s: Editable?) {
-                super.afterTextChanged(s)
-                goodsConfirm.isEnabled = commWeight.text.toString().isNotBlank()
-            }
-        })
-        commWeight.setOnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_GO) {   // 按下完成按钮，这里和上面imeOptions对应
-                handlerConfirm()
-            }
-            false;   //返回true，保留软键盘。false，隐藏软键盘
-        }
+//        commWeight.addTextChangedListener(object : BmnTextWatcher() {
+//            override fun afterTextChanged(s: Editable?) {
+//                super.afterTextChanged(s)
+//                goodsConfirm.isEnabled = commWeight.text.toString().isNotBlank()
+//            }
+//        })
+//        commWeight.setOnEditorActionListener { v, actionId, event ->
+//            if (actionId == EditorInfo.IME_ACTION_GO) {   // 按下完成按钮，这里和上面imeOptions对应
+//                handlerConfirm()
+//            }
+//            false;   //返回true，保留软键盘。false，隐藏软键盘
+//        }
 
         val nameList = mutableListOf<String>()
         for (i in CacheDataUtils.WARE_HOUSE_NAME_LIST){
             nameList.add(i.WarehouseName!!)
         }
 
-        goodsAmount.addTextChangedListener(object : BmnTextWatcher(){
-            override fun afterTextChanged(s: Editable?) {
-                super.afterTextChanged(s)
-                goodsConfirm.isEnabled = goodsAmount.text.toString().isNotBlank()
-            }
-        })
+//        goodsAmount.addTextChangedListener(object : BmnTextWatcher(){
+//            override fun afterTextChanged(s: Editable?) {
+//                super.afterTextChanged(s)
+//                goodsConfirm.isEnabled = goodsAmount.text.toString().isNotBlank()
+//            }
+//        })
 
         goodsAmount.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_GO) {   // 按下完成按钮，这里和上面imeOptions对应
@@ -126,14 +128,25 @@ class GoodsPriceDialog : DialogFragment() {
 
         var goodsAmount = goodsAmount.text.toString().trim()
 
-        if (price.isNotBlank() && goodsAmount.isNotBlank()) {
+        if (goodsAmount.isNotBlank()) {
             val weightDouble = weight.toDouble()
 //            goodEntity.GoodsStock = weightDouble
+
+            if (null != backListener) {
+                backListener!!.callbackListener(goodEntity,reuslt,goodsAmount)
+            }
+            dismiss()
+        }else{
+            goodsAmount = "0"
             if (null != backListener) {
                 backListener!!.callbackListener(goodEntity,reuslt,goodsAmount)
             }
             dismiss()
         }
+//        else{
+//            Toasty.error(activity!!,"请输入数量！", Toast.LENGTH_SHORT).show()
+//        }
+
 
     }
 

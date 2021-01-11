@@ -94,7 +94,7 @@ class MainFragment : Fragment() {
                                 entity.GoodsID,
                                 entity.SupplierID?.toInt()!!,
                                 entity.GoodsWeight,
-                                goodsAmount.toInt(),
+                                goodsAmount,
                                 entit2y.WarehouseID,
                                 "${CacheDataUtils.USERNAME1!!},${CacheDataUtils.USERNAME2!!}"
                             )

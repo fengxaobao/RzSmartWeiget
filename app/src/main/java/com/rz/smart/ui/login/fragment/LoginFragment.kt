@@ -42,9 +42,9 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
                 CacheDataUtils.PASSWORD1 = passWord
 //                _viewModel.login("孙明","KD562D","孙明","KD562D")
 
-                LoginEvent(userName,passWord).post()
-                _viewModel.userName = loginInput.text.toString().trim()
-                _viewModel.userPwd = passwordInput.text.toString().trim()
+//                LoginEvent(userName,passWord).post()
+//                _viewModel.userName = loginInput.text.toString().trim()
+//                _viewModel.userPwd = passwordInput.text.toString().trim()
                 mActivity?.changeToReLogin()
             }
         }

@@ -60,9 +60,9 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
         }
     }
 
-    fun uploadCuisine(OperatorName:String,GoodId: String?,SupplierID:Int, GoodsWeight: Double,GoodsAmount:Int,WarehouseID:Int,Remark:String) {
+    fun uploadCuisine(OperatorName:String,GoodId: String?,SupplierID:Int, GoodsWeight: Double,GoodsAmount:String,WarehouseID:Int,Remark:String) {
         launchOnUI {
-            val result = roomRepository.setGoodsWeight(OperatorName,GoodId!!,SupplierID.toString(),GoodsWeight.toString(),GoodsAmount.toString(),WarehouseID.toString(),Remark)
+            val result = roomRepository.setGoodsWeight(OperatorName,GoodId!!,SupplierID.toString(),GoodsWeight.toString(),GoodsAmount,WarehouseID.toString(),Remark)
             result.checkResult({
                 if(it?.Status == 0){
                     it.logD()

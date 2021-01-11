@@ -1,119 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/dp_334"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/common_cl_white"
-    android:paddingBottom="@dimen/dp_30">
+    >
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/dialogCloseImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp_20"
-        android:src="@mipmap/dialog_close"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/goodName"
-        style="@style/text_color_black_16_bold"
-        android:layout_marginTop="@dimen/dp_35"
-        android:text="价格"
-        android:textSize="@dimen/font_24"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/settingTextInputLayout"
-        android:layout_width="@dimen/dp_300"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_50"
-        android:layout_marginTop="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_50"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goodName">
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/commWeight"
-            style="@style/text_color_black_18"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50"
-            android:hint="请把物品放到称上"
-            android:imeOptions="actionGo"
-            android:inputType="numberDecimal"
-            android:paddingLeft="@dimen/dp_15"
-            android:singleLine="true"
-            android:textSize="@dimen/dp_24"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/goodsConfirm"
-        style="@style/btn_blue_white_style"
-        android:layout_width="@dimen/dp_250"
-        android:layout_height="@dimen/dp_35"
-        android:layout_marginLeft="@dimen/dp_50"
-        android:layout_marginRight="@dimen/dp_50"
-        android:enabled="false"
-        android:text="@string/command_dialog_confirm"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="400dp"
+        android:layout_height="270dp"
+        android:elevation="12dp"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num"
-        app:layout_goneMarginTop="@dimen/dp_40" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintWidth_percent="0.45">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dialogCloseImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_20"
+                android:src="@mipmap/dialog_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_30"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="请选择库仓:"
-        android:textSize="@dimen/sp_16"
-        app:layout_constraintEnd_toEndOf="@+id/settingTextInputLayout"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="@+id/settingTextInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/settingTextInputLayout" />
 
-    <Spinner
-        android:id="@+id/add_type"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_30"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="@dimen/dp_10"
-        android:dropDownWidth="160dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/num"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="数量:"
-        android:textSize="@dimen/sp_16"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/goodName"
+                style="@style/text_color_black_16_bold"
+                android:text="价格"
+                android:textSize="@dimen/font_24"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/dialogCloseImg"/>
 
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/goodsAmount"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginLeft="@dimen/dp_10"
-        android:background="@null"
-        android:hint=" 请输入数量"
-        android:textSize="@dimen/sp_14"
-        app:layout_constraintStart_toEndOf="@+id/num"
-        app:layout_constraintTop_toTopOf="@+id/num" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/commWeight"
+                style="@style/text_color_black_18"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:hint="请把物品放到称上"
+                android:imeOptions="actionGo"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textSize="@dimen/dp_21"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/goodName"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="请选择库仓:"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintTop_toBottomOf="@+id/commWeight"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"/>
+
+            <Spinner
+                android:id="@+id/add_type"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:dropDownWidth="160dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/num"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:gravity="center"
+                android:text="数量:"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintEnd_toStartOf="@+id/goodsAmount"
+                app:layout_constraintTop_toTopOf="@+id/goodsAmount"
+                android:layout_marginRight="@dimen/dp_10"
+                 />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+
+                android:layout_marginTop="10dp"
+                android:id="@+id/goodsAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:background="@null"
+                android:hint=" 请输入数量"
+                android:textSize="@dimen/sp_14"
+                android:singleLine="true"
+                android:inputType="number"
+                app:layout_constraintTop_toBottomOf="@+id/commWeight"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="20dp"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/goodsConfirm"
+                style="@style/btn_blue_white_style"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:layout_marginRight="@dimen/dp_50"
+                android:text="@string/command_dialog_confirm"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/num"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/settingTextInputLayout"-->
+<!--        android:layout_width="@dimen/dp_300"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="@dimen/dp_50"-->
+<!--        android:layout_marginTop="@dimen/dp_20"-->
+<!--        android:layout_marginRight="@dimen/dp_50"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/goodName">-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
