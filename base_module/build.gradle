@@ -94,4 +94,6 @@ dependencies {
     // RxJava
     api deps.rx_android
     api deps.rxjava2
+
+    api 'org.greenrobot:eventbus:3.0.0'
 }

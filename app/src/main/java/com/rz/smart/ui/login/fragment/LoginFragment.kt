@@ -1,10 +1,9 @@
 package com.rz.smart.ui.login.fragment
 
 import android.content.Context
-import android.os.Bundle
-import androidx.lifecycle.Observer
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.R
+import com.rz.smart.event.LoginEvent
 import com.rz.smart.ui.login.LoginActivity
 import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
@@ -41,6 +40,11 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
             if(checkInput()){
                 CacheDataUtils.USERNAME1 = userName
                 CacheDataUtils.PASSWORD1 = passWord
+//                _viewModel.login("孙明","KD562D","孙明","KD562D")
+
+                LoginEvent(userName,passWord).post()
+                _viewModel.userName = loginInput.text.toString().trim()
+                _viewModel.userPwd = passwordInput.text.toString().trim()
                 mActivity?.changeToReLogin()
             }
         }

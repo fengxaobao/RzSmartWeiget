@@ -7,6 +7,6 @@
     <string name="comm_please_price">请输入价格</string>
 
     <string name="please_login">请登录</string>
-    <string name="please_relogin">二次登陆验证</string>
+    <string name="please_relogin">二次登录验证</string>
 
 </resources>

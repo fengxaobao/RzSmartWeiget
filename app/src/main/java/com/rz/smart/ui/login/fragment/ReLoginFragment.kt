@@ -7,10 +7,14 @@ import com.jetpack.base.mvvm.logD
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.MainActivity
 import com.rz.smart.R
+import com.rz.smart.event.LoginEvent
 import com.rz.smart.ui.login.LoginActivity
 import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.re_login_fragment.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
@@ -19,6 +23,8 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
     private lateinit var reUserName: String
     private lateinit var rePassWord: String
+    var userName : String = ""
+    var userPwd : String = ""
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,6 +33,11 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
     companion object {
         fun newInstance() = ReLoginFragment()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
     }
 
     override fun getLayoutResId(): Int = R.layout.re_login_fragment
