@@ -23,5 +23,5 @@ class CuisineInfo :Serializable{
      val GoodsTypeName: String? = null
      val CostPrice: String? = null
      val GoodsStock: String? = null
-     val GoodsWeight: Double = 0.0
+     var GoodsWeight: Double = 0.0
 }

@@ -81,7 +81,7 @@ class ReLoginFragment : BaseVMFragment<LoginViewModel>() {
 
     fun checkInput(): Boolean{
         reUserName = reLoginInput.text.toString().trim()
-        reUserName = rePasswordInput.text.toString().trim()
+        rePassWord = rePasswordInput.text.toString().trim()
         if (reUserName.isEmpty()) {
             Toasty.error(activity!!,"请输入账户", Toasty.LENGTH_LONG).show()
             return false

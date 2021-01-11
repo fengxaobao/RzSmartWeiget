@@ -96,8 +96,8 @@ class MainFragment : Fragment() {
                                 entity.GoodsWeight,
                                 goodsAmount,
                                 entit2y.WarehouseID,
-                                "${CacheDataUtils.USERNAME1!!},${CacheDataUtils.USERNAME2!!}"
-                            )
+                                "${CacheDataUtils.USERNAME1!!},${CacheDataUtils.USERNAME2!!}",
+                                entity.CostPrice.toString())
                         }
                     })
                 }
@@ -110,7 +110,6 @@ class MainFragment : Fragment() {
         viewModel.uploadMenuInfoLiveData.observe(viewLifecycleOwner,
             Observer<List<UploadMenuInfo>> {
                 CacheDataUtils.WARE_HOUSE_NAME_LIST = it
-                Toasty.success(activity!!, "提交数据成功成功", Toast.LENGTH_LONG).show()
             })
     }
 

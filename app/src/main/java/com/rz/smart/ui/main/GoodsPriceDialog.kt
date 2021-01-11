@@ -1,23 +1,18 @@
 package com.rz.smart.ui.main
 
-import BmnTextWatcher
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.jetpack.base.mvvm.logD
 import com.rz.smart.R
 import com.rz.smart.model.entity.CuisineInfo
 import com.rz.smart.model.entity.UploadMenuInfo
 import com.rz.smart.utils.CacheDataUtils
-import com.uc.crashsdk.export.LogType.addType
-import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.dialog_goods.*
 
 
@@ -124,30 +119,23 @@ class GoodsPriceDialog : DialogFragment() {
     private fun handlerConfirm() {
         val price = commWeight.text.toString()
         val split = price.split(" ")
-        val weight = split[0]
-
+        val weight: Double
+        if(price.isNotBlank()){
+            weight = split[0]?.toDouble()
+        }else{
+            weight= 0.toDouble()
+        }
+        goodEntity.GoodsWeight = weight
         var goodsAmount = goodsAmount.text.toString().trim()
 
-        if (goodsAmount.isNotBlank()) {
-            val weightDouble = weight.toDouble()
-//            goodEntity.GoodsStock = weightDouble
-
-            if (null != backListener) {
-                backListener!!.callbackListener(goodEntity,reuslt,goodsAmount)
-            }
-            dismiss()
-        }else{
+        if (goodsAmount.isBlank()) {
             goodsAmount = "0"
-            if (null != backListener) {
-                backListener!!.callbackListener(goodEntity,reuslt,goodsAmount)
-            }
-            dismiss()
+
         }
-//        else{
-//            Toasty.error(activity!!,"请输入数量！", Toast.LENGTH_SHORT).show()
-//        }
-
-
+        if (null != backListener) {
+            backListener!!.callbackListener(goodEntity,reuslt,goodsAmount)
+        }
+        dismiss()
     }
 
     fun setCallBackListener(back: CallBackListener) {
@@ -158,7 +146,6 @@ class GoodsPriceDialog : DialogFragment() {
         fun newInstance(bean: CuisineInfo): GoodsPriceDialog {
             val args = Bundle()
             args.putSerializable("GoodEntity", bean)
-//            args.putSerializable("UploadMenuInfo",bean)
             val fragment = GoodsPriceDialog()
             fragment.arguments = args
             return fragment

@@ -194,54 +194,54 @@ class SdkManager constructor(var context: Context) {
      * UMConfigure.init调用中appkey和channel参数请置为null）。
      */
     private fun initUmeng() {
-        UMConfigure.init(
-            context,
-            BuildConfig.UEMNG_KEY,
-            "umeng",
-            UMConfigure.DEVICE_TYPE_PHONE,
-            BuildConfig.UEMNG_MESSAGE_SECRET
-        )
-        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
-        // 支持在子进程中统计自定义事件
-        UMConfigure.setProcessEvent(true)
-
-        //获取消息推送代理示例
-        //获取消息推送代理示例
-        val mPushAgent = PushAgent.getInstance(context)
-//注册推送服务，每次调用register方法都会回调该接口
-//注册推送服务，每次调用register方法都会回调该接口
-        mPushAgent.register(object : IUmengRegisterCallback {
-            override fun onSuccess(deviceToken: String) {
-                //注册成功会返回deviceToken deviceToken是推送消息的唯一标志
-                Logger.i("注册成功：deviceToken：-------->  $deviceToken")
-            }
-
-            override fun onFailure(s: String, s1: String) {
-                Logger.i("注册失败：-------->  s:$s,s1:$s1")
-            }
-        })
-        mPushAgent.setNotificaitonOnForeground(false)
-        mPushAgent.displayNotificationNumber = 1
-        val devices = GlobalPreference.get(GlobalPreference.KEY.DEVICES_APP_NAME, "")
-        val sn = RxDeviceTool.getSN()!!
-
-        var messageHandler: UmengMessageHandler = object : UmengMessageHandler() {
-            override fun dealWithCustomMessage(
-                context: Context,
-                msg: UMessage
-            ) {
-                if (msg.custom == devices) {
-                    Logger.e("上报日志")
-                    EventBus.getDefault().post(EmailLogEvent())
-                }
-            }
-        }
-        mPushAgent.messageHandler = messageHandler
-        mPushAgent.tagManager.addTags(TagManager.TCallBack { isSuccess, result ->
-            if (isSuccess) {
-                Logger.e("添加tag成功")
-            }
-        }, devices, sn)
+//        UMConfigure.init(
+//            context,
+//            BuildConfig.UEMNG_KEY,
+//            "umeng",
+//            UMConfigure.DEVICE_TYPE_PHONE,
+//            BuildConfig.UEMNG_MESSAGE_SECRET
+//        )
+//        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
+//        // 支持在子进程中统计自定义事件
+//        UMConfigure.setProcessEvent(true)
+//
+//        //获取消息推送代理示例
+//        //获取消息推送代理示例
+//        val mPushAgent = PushAgent.getInstance(context)
+////注册推送服务，每次调用register方法都会回调该接口
+////注册推送服务，每次调用register方法都会回调该接口
+//        mPushAgent.register(object : IUmengRegisterCallback {
+//            override fun onSuccess(deviceToken: String) {
+//                //注册成功会返回deviceToken deviceToken是推送消息的唯一标志
+//                Logger.i("注册成功：deviceToken：-------->  $deviceToken")
+//            }
+//
+//            override fun onFailure(s: String, s1: String) {
+//                Logger.i("注册失败：-------->  s:$s,s1:$s1")
+//            }
+//        })
+//        mPushAgent.setNotificaitonOnForeground(false)
+//        mPushAgent.displayNotificationNumber = 1
+//        val devices = GlobalPreference.get(GlobalPreference.KEY.DEVICES_APP_NAME, "")
+//        val sn = RxDeviceTool.getSN()!!
+//
+//        var messageHandler: UmengMessageHandler = object : UmengMessageHandler() {
+//            override fun dealWithCustomMessage(
+//                context: Context,
+//                msg: UMessage
+//            ) {
+//                if (msg.custom == devices) {
+//                    Logger.e("上报日志")
+//                    EventBus.getDefault().post(EmailLogEvent())
+//                }
+//            }
+//        }
+//        mPushAgent.messageHandler = messageHandler
+//        mPushAgent.tagManager.addTags(TagManager.TCallBack { isSuccess, result ->
+//            if (isSuccess) {
+//                Logger.e("添加tag成功")
+//            }
+//        }, devices, sn)
 
     }
 

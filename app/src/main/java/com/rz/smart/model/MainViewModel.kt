@@ -32,7 +32,6 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
     val uploadMenuInfoLiveData: LiveData<List<UploadMenuInfo>>
         get() = uploadMenuInfo
 
-//    private val uploadCuisineInfo = MutableLiveData<>
 
     fun getAllCuisine() {
         launchOnUI {
@@ -60,9 +59,18 @@ class MainViewModel : BaseViewModel(BaseApplication.instance()), OnOpenSerialPor
         }
     }
 
-    fun uploadCuisine(OperatorName:String,GoodId: String?,SupplierID:Int, GoodsWeight: Double,GoodsAmount:String,WarehouseID:Int,Remark:String) {
+    fun uploadCuisine(
+        OperatorName: String,
+        GoodId: String?,
+        SupplierID: Int,
+        GoodsWeight: Double,
+        GoodsAmount: String,
+        WarehouseID: Int,
+        Remark: String,
+        costPrice: String
+    ) {
         launchOnUI {
-            val result = roomRepository.setGoodsWeight(OperatorName,GoodId!!,SupplierID.toString(),GoodsWeight.toString(),GoodsAmount,WarehouseID.toString(),Remark)
+            val result = roomRepository.setGoodsWeight(OperatorName,GoodId!!,SupplierID.toString(),GoodsWeight.toString(),GoodsAmount,WarehouseID.toString(),Remark,costPrice)
             result.checkResult({
                 if(it?.Status == 0){
                     it.logD()
