@@ -1,6 +1,7 @@
 package com.rz.smart.ui.login.fragment
 
 import com.jetpack.base.mvvm.checkResult
+import com.jetpack.base.mvvm.logD
 import com.jetpack.base.mvvm.ui.application.BaseApplication
 import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.rz.smart.repository.LoginRepository
@@ -10,10 +11,10 @@ import me.hgj.jetpackmvvm.callback.livedata.BooleanLiveData
 
 class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseApplication.instance()) {
 
+    init {
+        "LoginViewModel init".logD()
+    }
     var userLoginSuccess = BooleanLiveData()
-
-    var userName : String = ""
-    var userPwd : String = ""
 
     /**
      * Operator1Name	String	*	操作人1

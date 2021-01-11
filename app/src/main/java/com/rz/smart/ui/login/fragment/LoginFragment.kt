@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.R
 import com.rz.smart.ui.login.LoginActivity
+import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -38,12 +39,8 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
 
         btnLogin.setOnClickListener {
             if(checkInput()){
-//                _viewModel.login("孙明","KD562D","孙明","KD562D")
-
-
-
-                _viewModel.userName = userName
-                _viewModel.userPwd = passWord
+                CacheDataUtils.USERNAME1 = userName
+                CacheDataUtils.PASSWORD1 = passWord
                 mActivity?.changeToReLogin()
             }
         }

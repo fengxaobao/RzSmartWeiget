@@ -12,6 +12,7 @@ object CacheDataUtils{
     var WARE_HOUSE_NAME_LIST: List<UploadMenuInfo> = mutableListOf()
 
     var USERNAME1: String? = null
+    var PASSWORD1: String? = null
 
     var USERNAME2: String? = null
 
