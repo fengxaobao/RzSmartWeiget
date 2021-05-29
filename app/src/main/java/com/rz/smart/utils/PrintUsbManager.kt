@@ -16,7 +16,6 @@ import com.rz.printf.TestFunction
 import com.sun.jna.Pointer
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import java.lang.reflect.Method
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -45,18 +44,19 @@ class PrintUsbManager(val activity: AppCompatActivity) {
 
 
     @SuppressLint("CheckResult")
-    fun printTest(){
+    fun printTest(weight: String) {
         Observable.timer(500,TimeUnit.MILLISECONDS).observeOn(Schedulers.io()).subscribeOn(Schedulers.io())
             .subscribe{
                 val testFunction = TestFunction()
                 testFunction.ctx = activity
-                val m: Method =
-                    TestFunction::class.java.getDeclaredMethod(
-                        "Test_Label_SampleTicket_58MM_1",
-                        Pointer::class.java
-                    )
-                m.isAccessible = true
-                m.invoke(testFunction, h)
+//                val m: Method =
+//                    TestFunction::class.java.getDeclaredMethod(
+//                        "Test_Label_SampleTicket_58MM_1",
+//                        Pointer::class.java
+//                    )
+//                m.isAccessible = true
+//                m.invoke(testFunction, h)
+                testFunction.Test_Label_SampleTicket_58MM_1(h,weight)
             }
     }
 

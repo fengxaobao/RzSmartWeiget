@@ -70,7 +70,7 @@ public class TestFunction {
 
     private static int nPageID = 1;
 
-    public void Test_Label_SampleTicket_58MM_1(Pointer h)
+    public void Test_Label_SampleTicket_58MM_1(Pointer h, String weight)
     {
         AutoReplyPrint.INSTANCE.CP_Pos_SetMultiByteMode(h);
         AutoReplyPrint.INSTANCE.CP_Pos_SetMultiByteEncoding(h, AutoReplyPrint.CP_MultiByteEncoding_UTF8);
@@ -78,7 +78,7 @@ public class TestFunction {
         AutoReplyPrint.INSTANCE.CP_Label_PageBegin(h, 0, 0, 384, 200, 0);
         AutoReplyPrint.INSTANCE.CP_Label_DrawBox(h, 0, 0, 384, 200, 1, 1);
         AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 10, 10, 24, 0, "白菜：123");
-        AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 10, 40, 24, 0, "胡萝卜 ：100");
+        AutoReplyPrint.INSTANCE.CP_Label_DrawText(h, 10, 40, 24, 0, "重量 :"+weight+"Kg");
         AutoReplyPrint.INSTANCE.CP_Label_DrawBarcode(h, 10, 70, AutoReplyPrint.CP_Label_BarcodeType_CODE128, AutoReplyPrint.CP_Label_BarcodeTextPrintPosition_BelowBarcode, 60, 2, 0, "No.300202");
         AutoReplyPrint.INSTANCE.CP_Label_PagePrint(h, 1);
 

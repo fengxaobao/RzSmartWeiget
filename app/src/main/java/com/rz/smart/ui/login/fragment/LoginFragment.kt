@@ -2,22 +2,23 @@ package com.rz.smart.ui.login.fragment
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
+import com.jetpack.base.mvvm.logD
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.R
-import com.rz.smart.event.LoginEvent
+import com.rz.smart.model.MainViewModel
 import com.rz.smart.ui.login.LoginActivity
-import com.rz.smart.utils.CacheDataUtils
 import com.rz.smart.utils.PrintUsbManager
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class LoginFragment : BaseVMFragment<LoginViewModel>() {
-
+    private var viewModel: MainViewModel = MainViewModel()
     private var mActivity: LoginActivity? = null
     private lateinit var userName: String
     private lateinit var passWord: String
     private lateinit var printUsbManager: PrintUsbManager
+    var weight:String = ""
     override fun onAttach(context: Context) {
 
 
@@ -40,10 +41,20 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     }
 
     override fun initData() {
+        viewModel.openSerialPort(object : MainViewModel.SerialPortListener {
+            override fun onDataReceived(data: String) {
+                data.logD()
+                weight= data
+            }
+
+            override fun onDataSent(data: String) {
+            }
+
+        })
 
         btnLogin.setOnClickListener {
             try {
-                printUsbManager.printTest()
+                printUsbManager.printTest(weight)
             }catch (e:Exception){
                 e.printStackTrace()
             }
