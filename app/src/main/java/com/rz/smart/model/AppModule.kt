@@ -9,6 +9,7 @@ import com.rz.smart.service.BmnBaseUrlConfig
 import com.rz.smart.ui.login.NoViewModel
 import com.rz.smart.ui.login.fragment.LoginViewModel
 import com.rz.smart.ui.splash.SplashViewModel
+import com.rz.smart.ui.verify.VerifyModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -22,6 +23,7 @@ val viewModelModule = module {
     viewModel { SplashViewModel() }
     viewModel { NoViewModel() }
     viewModel { LoginViewModel(get()) }
+    viewModel { VerifyModel(get()) }
 }
 
 val repositoryModule = module {

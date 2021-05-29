@@ -177,5 +177,20 @@ class SmartRepository : BaseNetRepository() {
 
     override fun getUlrKey(): String = BmnBaseUrlConfig.UrlKey()
 
+    //获取员工的信息
+    fun getEmpLoyeeInfo(): Results<BaseResponse<Any>>? {
+//        return safeApiCall(
+//            call = { requestEmpLoyeeInfo()
+//                   },
+//            errorMessage = BaseApplication.instance().resources.getString(R.string.net_connection_fail)
+//        )
+        return null
+
+    }
+
+//    private fun requestEmpLoyeeInfo(): Results<BaseResponse<Any>>  {
+//        return
+//    }
+
 }
 

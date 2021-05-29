@@ -1,9 +1,9 @@
 def currentModule = modules.smart_mobile
-if (currentModule.isStandalone) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+//if (currentModule.isStandalone) {
+//    apply plugin: 'com.android.application'
+//} else {
+//    apply plugin: 'com.android.library'
+//}
 
 
 apply plugin: 'com.android.application'
@@ -27,10 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = '1.8'
     }
+
 
     buildTypes {
         release {
@@ -41,18 +41,29 @@ android {
     dataBinding {
         enabled = true
     }
+    buildFeatures {
+        viewBinding true
+    }
+}
+repositories {
+    flatDir {
+        dirs '../aar'
+    }
 }
 
 dependencies {
     implementation project(":base_module")
     implementation project(":SerialPortLibrary")
     implementation project(":recycleView_libs")
-    implementation project(":print_lib")
+//    implementation project(":print_lib")
+    //打印机打印功能
+    api project(":printf_lib")
+    implementation(name:'autoreplyprint', ext:'aar')
 
     implementation deps.kotlin.stdlib
     api deps.app_compat
     api deps.core_ktx
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation deps.material
 
     // Kotlin
     implementation deps.navigation.fragment_ktx
@@ -66,6 +77,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 
     //测试
 

@@ -1,4 +1,4 @@
-package me.hgj.jetpackmvvm.callback.livedata
+package com.jetpack.base.mvvm.livedata.livedata
 
 import androidx.lifecycle.MutableLiveData
 

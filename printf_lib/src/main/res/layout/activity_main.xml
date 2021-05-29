@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusable="true"  
+   	android:focusableInTouchMode="true"
+    android:id="@+id/layoutMain">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbBT2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt2"
+            android:layout_gravity="center"/>
+
+		<com.rz.printf.ComboBox
+			android:id="@+id/cbxLisbBT2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbBT4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt4"
+            android:layout_gravity="center" />
+
+        <com.rz.printf.ComboBox
+            android:id="@+id/cbxLisbBT4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbNET"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/net"
+            android:layout_gravity="center"/>
+
+        <com.rz.printf.ComboBox
+            android:id="@+id/cbxListNET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayoutPortUSB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbUSB"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/usb"
+            android:layout_gravity="center"/>
+
+        <com.rz.printf.ComboBox
+            android:id="@+id/cbxLisbUSB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayoutPortCOM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbCOM"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/com"
+            android:layout_gravity="center"/>
+
+        <com.rz.printf.ComboBox
+            android:id="@+id/cbxListCOMPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+        <com.rz.printf.ComboBox
+            android:id="@+id/cbxListCOMBaud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btnEnumPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/enumport" />
+
+        <Button
+            android:id="@+id/btnOpenPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/openport" />
+
+        <Button
+            android:id="@+id/btnClosePort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/closeport" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearlayoutPrinterInfo">
+        <TextView
+            android:id="@+id/textViewFirmwareVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewResolutionInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewPrinterErrorStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewPrinterInfoStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewPrinterReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textViewPrinterPrinted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewTestFunction">
+
+    </ListView>
+
+</LinearLayout>

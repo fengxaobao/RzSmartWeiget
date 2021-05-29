@@ -67,7 +67,7 @@ dependencies {
     implementation deps.activity.activity_ktx
 
 
-    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     //或者指明使用viewmodel
     api "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
     //或者指明使用livedata

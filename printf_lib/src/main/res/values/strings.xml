@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SampleLabel</string>
+    <string name="bt2">BT2.0</string>
+    <string name="bt4">BT4.0</string>
+    <string name="net">NET</string>
+    <string name="usb">USB</string>
+    <string name="com">COM</string>
+    <string name="listen">Listen</string>
+    <string name="enumport">Enum Port</string>
+    <string name="openport">Open Port</string>
+    <string name="closeport">Close Port</string>
+</resources>

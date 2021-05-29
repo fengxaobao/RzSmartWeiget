@@ -8,5 +8,20 @@
 
     <string name="please_login">请登录</string>
     <string name="please_relogin">二次登录验证</string>
+    <string name="title_activity_verify">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_storehouse">StorehouseActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_provider">选供应商</string>
+    <string name="menu_history_record">入库记录</string>
+    <string name="menu_setting">本机设置</string>
+    <string name="menu_exit">退出系统</string>
 
 </resources>

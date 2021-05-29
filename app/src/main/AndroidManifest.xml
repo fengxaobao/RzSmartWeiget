@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rz.smart">
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -8,18 +9,30 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-feature android:name="android.hardware.usb.host" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
 
     <application
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:name=".SmartApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.warehouse.StorehouseActivity"
+            android:label="@string/title_activity_storehouse"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.verify.VerifyActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_verify"
+            android:theme="@style/AppTheme.Fullscreen" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation|uiMode"
@@ -30,7 +43,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".ui.login.LoginActivity" >
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
         <activity android:name=".MainActivity" />
     </application>
 

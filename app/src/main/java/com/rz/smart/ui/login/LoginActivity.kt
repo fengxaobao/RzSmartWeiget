@@ -5,6 +5,7 @@ import com.rz.command.net.RxNetworkUtil
 import com.rz.smart.R
 import com.rz.smart.ui.login.fragment.LoginFragment
 import com.rz.smart.ui.login.fragment.ReLoginFragment
+import com.rz.smart.utils.PrintUsbManager
 import com.rz.smart.widget.FixedFragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel

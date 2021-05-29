@@ -7,7 +7,7 @@ import com.jetpack.base.mvvm.vm.BaseViewModel
 import com.rz.smart.repository.LoginRepository
 import com.rz.smart.utils.CacheDataUtils
 import es.dmoral.toasty.Toasty
-import me.hgj.jetpackmvvm.callback.livedata.BooleanLiveData
+import com.jetpack.base.mvvm.livedata.livedata.BooleanLiveData
 
 class LoginViewModel(var loginRepository: LoginRepository) : BaseViewModel(BaseApplication.instance()) {
 

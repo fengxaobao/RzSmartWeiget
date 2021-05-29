@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/fullscreenBackgroundColor"
+        android:theme="@style/ThemeOverlay.SmartWeiget.FullscreenContainer"
+        tools:context=".ui.verify.VerifyActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_100"
+            android:text="职工餐厅库存管理系统"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_400"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="@drawable/verify_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appCompatTextView2">
+
+            <com.rz.command.view.RadioImageView
+                android:id="@+id/userImg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/zlz"
+                app:radius="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/userName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userImg1"
+                android:text="张三"
+                android:textSize="@dimen/font_20" />
+
+            <com.rz.command.view.RadioImageView
+                android:id="@+id/userImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/zlz"
+                app:radius="5dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/userName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userImg1"
+                android:layout_alignParentRight="true"
+                android:text="张三"
+                android:textSize="@dimen/font_20" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/btn_blue_white_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/loginBtn"
+                android:layout_below="@id/userName2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_40"
+                android:layout_marginBottom="@dimen/dp_30"
+                android:text="确定登录" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

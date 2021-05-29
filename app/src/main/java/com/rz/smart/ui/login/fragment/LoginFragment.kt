@@ -1,11 +1,13 @@
 package com.rz.smart.ui.login.fragment
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import com.jetpack.base.mvvm.ui.fragment.BaseVMFragment
 import com.rz.smart.R
 import com.rz.smart.event.LoginEvent
 import com.rz.smart.ui.login.LoginActivity
 import com.rz.smart.utils.CacheDataUtils
+import com.rz.smart.utils.PrintUsbManager
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -15,10 +17,13 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     private var mActivity: LoginActivity? = null
     private lateinit var userName: String
     private lateinit var passWord: String
-
+    private lateinit var printUsbManager: PrintUsbManager
     override fun onAttach(context: Context) {
+
+
         super.onAttach(context)
         mActivity = context as LoginActivity
+        printUsbManager = PrintUsbManager((activity as AppCompatActivity?)!!)
     }
 
     companion object {
@@ -37,16 +42,17 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun initData() {
 
         btnLogin.setOnClickListener {
-            if(checkInput()){
-                CacheDataUtils.USERNAME1 = userName
-                CacheDataUtils.PASSWORD1 = passWord
-//                _viewModel.login("孙明","KD562D","孙明","KD562D")
-
-//                LoginEvent(userName,passWord).post()
-//                _viewModel.userName = loginInput.text.toString().trim()
-//                _viewModel.userPwd = passwordInput.text.toString().trim()
-                mActivity?.changeToReLogin()
+            try {
+                printUsbManager.printTest()
+            }catch (e:Exception){
+                e.printStackTrace()
             }
+
+//            if(checkInput()){
+//                CacheDataUtils.USERNAME1 = userName
+//                CacheDataUtils.PASSWORD1 = passWord
+//                mActivity?.changeToReLogin()
+//            }
         }
 
     }

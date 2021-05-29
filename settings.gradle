@@ -7,3 +7,4 @@ include ':utils'
 include ':SerialPortLibrary'
 include ':app'
 rootProject.name = "SmartWeiget"
+include ':printf_lib'

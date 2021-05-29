@@ -8,4 +8,8 @@
     <declare-styleable name="CollectView">
         <attr name="cv_uncheckedColor" format="color|reference" />
     </declare-styleable>
+    <declare-styleable name="FullscreenAttrs">
+        <attr name="fullscreenBackgroundColor" format="color" />
+        <attr name="fullscreenTextColor" format="color" />
+    </declare-styleable>
 </resources>

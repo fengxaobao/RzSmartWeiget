@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.jetpack.base.mvvm.ui.activity.BaseVMActivity
 import com.orhanobut.logger.Logger
 import com.rz.command.net.RxNetworkUtil
-import com.rz.smart.MainActivity
 import com.rz.smart.R
 import com.rz.smart.ui.login.LoginActivity
 import io.reactivex.Observable
