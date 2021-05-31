@@ -20,8 +20,6 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     private lateinit var printUsbManager: PrintUsbManager
     var weight:String = ""
     override fun onAttach(context: Context) {
-
-
         super.onAttach(context)
         mActivity = context as LoginActivity
         printUsbManager = PrintUsbManager((activity as AppCompatActivity?)!!)
@@ -43,7 +41,6 @@ class LoginFragment : BaseVMFragment<LoginViewModel>() {
     override fun initData() {
         viewModel.openSerialPort(object : MainViewModel.SerialPortListener {
             override fun onDataReceived(data: String) {
-                data.logD()
                 weight= data
             }
 

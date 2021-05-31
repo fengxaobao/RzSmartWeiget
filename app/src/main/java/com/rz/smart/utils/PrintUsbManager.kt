@@ -27,12 +27,12 @@ class PrintUsbManager(val activity: AppCompatActivity) {
     private var h: Pointer? = Pointer.NULL
 
     private fun getEnumUsb() : String {
-       var name ="123"
-        val devicePaths: Array<String> = AutoReplyPrint.CP_Port_EnumUsb_Helper.EnumUsb()
-        if (devicePaths != null) {
-            name = devicePaths[1]
-            name = name.trim()
-        }
+       var name ="VID:0x0FE6,PID:0x811E"
+//        val devicePaths: Array<String> = AutoReplyPrint.CP_Port_EnumUsb_Helper.EnumUsb()
+//        if (devicePaths != null) {
+//            name = devicePaths[1]
+//            name = name.trim()
+//        }
        return name
     }
 
